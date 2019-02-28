@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+//import './index.css';
 import ReactDOM from 'react-dom';
 import Layout from './containers/Layout/Layout';
 

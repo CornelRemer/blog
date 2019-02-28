@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Toolbar from '../../components/Navigation/Toolbar/Toolbar';
 
+import './Layout.css';
+
 class Layout extends Component {
     state = {
         showToolbar: false
@@ -17,7 +19,7 @@ class Layout extends Component {
             toolbar = null
         }
         return (
-            <div>
+            <div className="Layout">
                 {toolbar}
                 <button onClick={this.toggleToolbarHandler}>Toggle Toolbar</button>
                 <p>Body</p>
