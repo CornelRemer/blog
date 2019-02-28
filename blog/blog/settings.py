@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'post',
     'rest_framework',
     'frontend',
+    'webpack_loader',
 ]
 
 MIDDLEWARE = [
@@ -121,3 +122,28 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+""" WEBPACK """
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'frontend' ,'src'),
+)
+
+WEBPACK_LOADER = {
+    'DEFAULT': {
+        'BUNDLE_DIR_NAME': 'frontend/bundles/',
+        'STATS_FILE': os.path.abspath(os.path.join(BASE_DIR, '..' ,'webpack-stats.json')),
+    }
+}
+
+"""
+WEBPACK_LOADER = {
+    'DEFAULT': {
+        'CACHE': not DEBUG,
+        'BUNDLE_DIR_NAME': 'frontend/bundles/',
+        'STATS_FILE': os.path.abspath(os.path.join(BASE_DIR, '..' ,'webpack-stats.json')),
+        'POLL_INTERVAL': 0.1,
+        'TIMEOUT': None,
+        'IGNORE': [r'.+\.hot-update.js', r'.+\.map']
+    }
+}
+"""
