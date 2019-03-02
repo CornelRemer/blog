@@ -1,14 +1,20 @@
 import React, {Component} from 'react';
-//import './index.css';
-import ReactDOM from 'react-dom';
+
 import Layout from './containers/Layout/Layout';
+import Hoc from './hoc/hoc';
 
 class App extends Component {
     render() {
         return (
-            <Layout />
+            <Hoc>
+                <Layout>
+                    <div>
+                        MAIN
+                    </div>
+                </Layout>
+            </Hoc>
         )
     }
 }
 
-ReactDOM.render(<App />, document.getElementById('app'));
+export default App;
