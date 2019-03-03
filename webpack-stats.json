@@ -1,1 +1,1 @@
-{"status":"done","chunks":{"main":[{"name":"main.js","path":"C:\\Users\\Cornel\\Desktop\\Australien\\blog\\blog\\frontend\\static\\frontend\\bundles\\main.js"}]},"error":"ModuleNotFoundError","message":"Module not found: Error: Can't resolve './serviceWorker' in 'C:\\Users\\Cornel\\Desktop\\Australien\\blog\\blog\\frontend\\src'"}
+{"status":"done","chunks":{"main":[{"name":"main.js","path":"C:\\Users\\Cornel\\Desktop\\Australien\\blog\\blog\\frontend\\static\\frontend\\bundles\\main.js"}]}}
