@@ -7,11 +7,7 @@ class App extends Component {
     render() {
         return (
             <Hoc>
-                <Layout>
-                    <div>
-                        MAIN
-                    </div>
-                </Layout>
+                <Layout />
             </Hoc>
         )
     }
