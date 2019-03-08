@@ -3,12 +3,10 @@ import axios from '../../axios';
 
 import './Blog.css';
 import Post from '../../components/Blog/Post/Post';
-import FullPost from '../../components/Blog/FullPost/FullPost';
 
 class Blog extends Component {
     state = {
         posts: [],
-        selectedPostId: null,
         error: false
     }
 
@@ -31,18 +29,26 @@ class Blog extends Component {
             });
     }
 
-    postSelectedHandler = (post) => {
-        if (!post.postActive) {
-            post.postActive= true
-        }
+    openFullPost = (post) => {
+        const postIndex = this.state.posts.indexOf(post);
+        let updatedPosts = this.state.posts;
+
+        post.postActive= true
         post.first = false
-        this.setState({selectedPostId: post.id});
+
+        updatedPosts[postIndex] = post
+        this.setState({posts: updatedPosts});
     }
 
     closeFullPost = (post) => {
+        const postIndex = this.state.posts.indexOf(post);
+        let updatedPosts = this.state.posts;
+
         post.first = false
         post.postActive = false
-        this.setState({selectedPostId: post.id});
+
+        updatedPosts[postIndex] = post
+        this.setState({posts: updatedPosts});
     }
 
     render () {
@@ -56,7 +62,7 @@ class Blog extends Component {
                             content={post.content}
                             first={post.first}
                             activate = {post.postActive}
-                            openFullPost={() => this.postSelectedHandler(post)}
+                            openFullPost={() => this.openFullPost(post)}
                             closeFullPost={() => this.closeFullPost(post)}/>
             } );
         }
@@ -65,9 +71,6 @@ class Blog extends Component {
             <div>
                 <section className="Posts">
                     {posts}
-                </section>
-                <section>
-                    <FullPost id={this.state.selectedPostId}/>
                 </section>
             </div>
         );
