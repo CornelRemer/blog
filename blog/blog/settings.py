@@ -24,9 +24,10 @@ SECRET_KEY = 'umsalxbk-jcdn+llm+7dv54^ugk@w69fxuc)f_^cqmlkt$t7ex'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+#DEBUG = False
 
+#ALLOWED_HOSTS = ['localhost','http://127.0.0.1:8000/']
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -41,7 +42,13 @@ INSTALLED_APPS = [
     'rest_framework',
     'frontend',
     'webpack_loader',
+    'knox',
+    'accounts',
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': ('knox.auth.TokenAuthentication',)
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

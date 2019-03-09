@@ -131,3 +131,5 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+blog/frontend/static/frontend/bundles/main.js
+webpack-stats.json
