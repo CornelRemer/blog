@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { HashRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 
 import Hoc from '../../hoc/hoc';
 import Toolbar from '../../components/Navigation/Toolbar/Toolbar';
@@ -43,9 +44,11 @@ class Layout extends Component {
                 <SideDrawer 
                     open={this.state.showSideDrawer}
                     closed={this.SideDrawerClosedHandler}/>
-                <div className="Layout">
-                    <Blog />
-                </div>
+                <Switch>
+                    <div className="Layout">
+                        <Route exact path="/" component={Blog} />
+                    </div>
+                </Switch>
             </Hoc>
         )
     }
