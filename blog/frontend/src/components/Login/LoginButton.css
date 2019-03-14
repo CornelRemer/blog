@@ -1,0 +1,58 @@
+/* Styling - Mobile Devices */
+.LoginButton {
+    margin: 2px 0;
+    box-sizing: border-box;
+    display: block;
+    
+    height: 100%;
+    /*width: auto;*/
+    width: 90%;
+    align-items: center;
+    float: right;
+    cursor: pointer;
+}
+
+.LoginButton a {
+    color: rgb(133, 132, 132);
+    text-decoration: none;
+    width: 100%;
+    box-sizing: border-box;
+    display: block;
+    padding: 16px 10px;
+    border-bottom: 4px solid transparent;
+    color: white;
+}
+
+.LoginButton a:hover,
+.LoginButton a:active,
+.LoginButton a.active {
+    background-color:  rgb(133, 132, 132);
+    border-bottom: 3px solid #40A4C8;
+    color: white;
+}
+
+/* Styling - Desktop */
+@media (min-width: 500px) {
+    .LoginButton {
+        margin: 0;
+        display: flex;
+        height: 100%;
+        width: auto;
+        align-items: center;
+    }
+
+    .LoginButton a {
+        color: white;
+        height: 100%;
+        padding: 16px 10px;
+        border-bottom: 4px solid transparent;
+    }
+
+    .LoginButton a:hover,
+    .LoginButton a:active,
+    .LoginButton a.active {
+        background-color:  rgb(133, 132, 132);
+        border-bottom: 4px solid #40A4C8;
+        color: white;
+    }
+}
