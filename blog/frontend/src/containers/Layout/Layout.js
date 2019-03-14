@@ -1,15 +1,19 @@
 import React, { Component } from 'react';
 import { HashRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 
+import Hoc from '../../hoc/hoc';
 import Toolbar from '../../components/Navigation/Toolbar/Toolbar';
 import SideDrawer from '../../components/Navigation/SideDrawer/SideDrawer';
 import Blog from '../Blog/Blog';
+import Modal from '../../components/UI/Modal/Modal';
+import LoginForm from '../../components/Login/LoginForm/LoginForm';
 
 import './Layout.css';
 
 class Layout extends Component {
     state = {
-        showSideDrawer: false
+        showSideDrawer: false,
+        loginModal:false
     }
 
     SideDrawerClosedHandler = () => {
@@ -22,10 +26,21 @@ class Layout extends Component {
         });
     }
 
+    loginModalHandler = () => {
+        this.setState({loginModal: true});
+    }
+
+    loginModalCancleHandler = () => {
+        this.setState({loginModal: false});
+    }
+
     render () {
         return (
-            <div>
-                <Toolbar drawerToggleClicked={this.SideDrawerToggleHandler}/>
+            <Hoc>
+                <Modal show={this.state.loginModal} modalClosed={this.loginModalCancleHandler}>
+                    <LoginForm />
+                </Modal>
+                <Toolbar drawerToggleClicked={this.SideDrawerToggleHandler} loginModal={this.loginModalHandler}/>
                 <SideDrawer 
                     open={this.state.showSideDrawer}
                     closed={this.SideDrawerClosedHandler}/>
@@ -34,7 +49,7 @@ class Layout extends Component {
                         <Route exact path="/" component={Blog} />
                     </div>
                 </Switch>
-            </div>
+            </Hoc>
         )
     }
 }
