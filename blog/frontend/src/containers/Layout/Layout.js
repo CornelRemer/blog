@@ -7,6 +7,8 @@ import SideDrawer from '../../components/Navigation/SideDrawer/SideDrawer';
 import Blog from '../Blog/Blog';
 import Modal from '../../components/UI/Modal/Modal';
 import LoginForm from '../../components/Login/LoginForm/LoginForm';
+import Map from '../Map/Map';
+import Start from '../Start/Start';
 
 import './Layout.css';
 
@@ -46,7 +48,9 @@ class Layout extends Component {
                     closed={this.SideDrawerClosedHandler}/>
                 <Switch>
                     <div className="Layout">
-                        <Route exact path="/" component={Blog} />
+                        <Route exact path="/" component={Start} />
+                        <Route exact path="/Blog" component={Blog} />
+                        <Route exact path="/Map" component={Map} />
                     </div>
                 </Switch>
             </Hoc>
