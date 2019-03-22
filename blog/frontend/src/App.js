@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { HashRouter as Router, Route, Switch, Redirect } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 
 import Layout from './containers/Layout/Layout';
 import Hoc from './hoc/hoc';
@@ -7,11 +7,11 @@ import Hoc from './hoc/hoc';
 class App extends Component {
     render() {
         return (
-            <Router>
+            <BrowserRouter>
                 <Hoc>
                     <Layout />
                 </Hoc>
-            </Router>
+            </BrowserRouter>
         )
     }
 }

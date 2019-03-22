@@ -26,6 +26,7 @@ SECRET_KEY = 'umsalxbk-jcdn+llm+7dv54^ugk@w69fxuc)f_^cqmlkt$t7ex'
 DEBUG = True
 #DEBUG = False
 
+#ALLOWED_HOSTS = ['*'] # allow all hosts
 #ALLOWED_HOSTS = ['localhost','http://127.0.0.1:8000/']
 ALLOWED_HOSTS = []
 

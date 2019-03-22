@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { HashRouter as Router, Route, Switch, Redirect } from "react-router-dom";
+import { Route } from "react-router-dom";
 
 import Hoc from '../../hoc/hoc';
 import Toolbar from '../../components/Navigation/Toolbar/Toolbar';
@@ -46,13 +46,11 @@ class Layout extends Component {
                 <SideDrawer 
                     open={this.state.showSideDrawer}
                     closed={this.SideDrawerClosedHandler}/>
-                <Switch>
-                    <div className="Layout">
-                        <Route exact path="/" component={Start} />
-                        <Route exact path="/Blog" component={Blog} />
-                        <Route exact path="/Map" component={Map} />
-                    </div>
-                </Switch>
+                <div className="Layout">
+                    <Route path="/" exact component={Start} />
+                    <Route path="/Blog" exact component={Blog} />
+                    <Route path="/Map" exact component={Map} />
+                </div>
             </Hoc>
         )
     }

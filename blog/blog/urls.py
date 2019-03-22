@@ -7,3 +7,5 @@ urlpatterns = [
     path('', include('post.urls')),
     path('', include('accounts.urls'))
 ]
+
+handler404='frontend.views.view_404'
