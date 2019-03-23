@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 class Start extends Component{
     render () {
@@ -7,7 +7,7 @@ class Start extends Component{
             <div>
                 <p>
                     Hier erscheint später die Startseite
-                    <Link to="/Blog">Blog</Link>
+                    <NavLink to="/Blog">Blog</NavLink>
                 </p>
             </div>
         )

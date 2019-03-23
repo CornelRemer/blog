@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 class Map extends Component{
     render () {
@@ -7,11 +7,11 @@ class Map extends Component{
             <div>
                 <p>
                     Hier erscheint später eine Karte
-                    <Link to="/">Blog</Link>
+                    <NavLink to="/">Blog</NavLink>
                 </p>
             </div>
         )
     }
 }
 
-export default Map;
+export default Map; 

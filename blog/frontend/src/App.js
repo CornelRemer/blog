@@ -3,6 +3,7 @@ import { BrowserRouter } from "react-router-dom";
 
 import Layout from './containers/Layout/Layout';
 import Hoc from './hoc/hoc';
+//import { loadUser } from './containers/Layout/Layout';
 
 class App extends Component {
     render() {

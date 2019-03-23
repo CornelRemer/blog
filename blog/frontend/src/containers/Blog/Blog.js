@@ -11,7 +11,15 @@ class Blog extends Component {
     }
 
     componentDidMount() {
-        axios.get('/api/post')
+        const token = 'Token ' + localStorage.getItem('token');
+        const config = {
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': token
+            }
+        }
+
+        axios.get('/api/post', config)
             .then(response => {
                 //const posts = response.data.slice(0, 4); // // speichert die ersten vier posts
                 const posts = response.data;
@@ -26,6 +34,8 @@ class Blog extends Component {
             })
             .catch(error => {
                 this.setState({error: true});
+                console.log('Fehler:',error);
+                console.log('Send config:',config);
             });
     }
 

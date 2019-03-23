@@ -12,7 +12,7 @@ const toolbar = ( props ) => (
             <NavigationItems />
         </nav>
         <nav>
-            <LoginButton clicked={props.loginModal}/>
+            <LoginButton clicked={props.loginModal} loginStatus={props.loginStatus}/>
         </nav>
     </header>
 )
