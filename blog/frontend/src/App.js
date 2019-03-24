@@ -1,17 +1,18 @@
 import React, { Component } from 'react';
-import { HashRouter as Router, Route, Switch, Redirect } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 
 import Layout from './containers/Layout/Layout';
 import Hoc from './hoc/hoc';
+//import { loadUser } from './containers/Layout/Layout';
 
 class App extends Component {
     render() {
         return (
-            <Router>
+            <BrowserRouter>
                 <Hoc>
                     <Layout />
                 </Hoc>
-            </Router>
+            </BrowserRouter>
         )
     }
 }

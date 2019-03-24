@@ -61,7 +61,8 @@ class LoginForm extends Component{
                     <input type="text" onChange={(event) => (password2 = event.target.value)} />
                 </div>
 
-                <button onClick={() => {this.loginHandler(username,password, password2, email)}} className="AnmeldeButton">{this.state.showRegister ? "Anmelden" : "Login"}</button>
+                <button onClick={() => {this.props.loginClick(username, password)}} className="AnmeldeButton">{this.state.showRegister ? "Anmelden" : "Login"}</button>
+                {/*<button onClick={() => {this.loginHandler(username,password, password2, email)}} className="AnmeldeButton">{this.state.showRegister ? "Anmelden" : "Login"}</button>*/}
                 <div className="AnmeldeOption" onClick={this.showRegisterHandler}>{this.state.showRegister ? "(Login)" : "(Anmelden)"}</div>
             </Hoc>
         )
