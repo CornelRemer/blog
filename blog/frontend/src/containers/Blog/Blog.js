@@ -18,6 +18,7 @@ class Blog extends Component {
                 'Authorization': token
             }
         }
+        console.log('Sende Request! ############')
 
         axios.get('/api/post', config)
             .then(response => {
