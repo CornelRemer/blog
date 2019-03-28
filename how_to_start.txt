@@ -1,0 +1,24 @@
+create virtual environment:
+    $ virtualenv env --no-site-packages
+
+activate env:
+    $ env\scripts\activate
+
+install packages:
+    $ pip install -r requirements.txt
+
+make migrations & migrate:
+    $ python .\manage.py makemigrations
+    $ python .\manage.py migrate
+
+install packages:
+    $ npm install
+
+### ---------- ###
+start watching files:
+    $ npm run dev
+
+start backend:
+    $ env\Scripts\activate
+    $ cd .\blog
+    $ python .\manage.py runserver
