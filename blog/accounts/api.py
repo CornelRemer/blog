@@ -10,6 +10,11 @@ class RegisterAPI(generics.GenericAPIView):
     serializer_class = RegisterSerializer
 
     def post(self, request, *args, **kwargs):
+        permission_classes = [
+            #permissions.AllowAny
+            #permissions.IsAuthenticated
+            permissions.IsAdminUser
+        ]
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         user = serializer.save()
