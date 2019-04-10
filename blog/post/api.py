@@ -1,18 +1,42 @@
 from post.models import Post
-from rest_framework import viewsets, permissions
+from rest_framework import viewsets, permissions #, status
 from .serializers import PostSerializer
+
+#from django.contrib.auth.models import User
+from django.http import HttpResponseForbidden
+#from rest_framework.response import Response
 
 # Post Viewset
 class PostViewSet(viewsets.ModelViewSet):
-    queryset = Post.objects.all()
+    #queryset = Post.objects.all()
     permission_classes = [
         #permissions.AllowAny
         permissions.IsAuthenticated
+        #permissions.IsAdminUser
     ]
     serializer_class = PostSerializer
 
-    #def get_queryset(self):
-    #    return self.request.user.posts.all()
+    def get_queryset(self):
+        return Post.objects.filter(publish=True)
+        #return Post.objects.all()
+        #return Post.objects.filter(owner=self.kwargs['pk'])
+        #return self.request.user.posts.all()
     
     #def perform_create(self, serializer):
     #    serializer.save(owner=self.request.user)
+
+    def destroy(self, request, *args, **kwargs):
+        return HttpResponseForbidden()
+        #return Response(status=status.HTTP_204_NO_CONTENT)
+    
+    def create(self, request, *args, **kwargs):
+        return HttpResponseForbidden()
+    
+    #def retrieve(self, request, *args, **kwargs):
+    #    return HttpResponseForbidden()
+    
+    def update(self, request, *args, **kwargs):
+        return HttpResponseForbidden()
+    
+    def partial_update(self, request, *args, **kwargs):
+        return HttpResponseForbidden()
