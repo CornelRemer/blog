@@ -18,7 +18,6 @@ class NavigationItems extends Component{
         <NavigationItem link="/" active={this.state.activeItem=== 'Start' ? true : false} clicked={this.changeActiveHandler} >Start</NavigationItem>
         <NavigationItem link="/Blog" active={this.state.activeItem=== 'Blog' ? true : false} clicked={this.changeActiveHandler} >Blog</NavigationItem>
         <NavigationItem link="/Map" active={this.state.activeItem=== 'Karte' ? true : false} clicked={this.changeActiveHandler} >Karte</NavigationItem>
-        <NavigationItem link="/" active={this.state.activeItem=== 'Sonstiges' ? true : false} clicked={this.changeActiveHandler} >Sonstiges</NavigationItem>
     </ul>
         )
     }
