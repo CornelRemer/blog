@@ -140,6 +140,7 @@ STATIC_URL = '/static/'
 """ WEBPACK """
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'frontend' ,'src'),
+    os.path.join(BASE_DIR, 'img')
 )
 
 WEBPACK_LOADER = {
