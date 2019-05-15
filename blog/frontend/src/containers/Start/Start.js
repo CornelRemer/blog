@@ -11,7 +11,7 @@ class Start extends Component{
                     Hier erscheint später die Startseite
                     <NavLink to="/Blog">Blog</NavLink>
                 </p>
-                <img src="/static/img/poke.png" width="30" height="30"/>
+                <img src="/static/img/P1020493.JPG" width="30" height="30"/>
             </div>
         )
     }

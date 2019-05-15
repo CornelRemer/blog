@@ -102,7 +102,7 @@ DATABASES = {
         'ENGINE': 'django.contrib.gis.db.backends.postgis',
         'NAME': 'blog_db',
         'USER': 'cornel',
-        'PASSWORD': 'KalteAsche430',
+        'PASSWORD': 'Password12345',
         'HOST': '',
         'PORT': '',
     }
@@ -172,3 +172,6 @@ WEBPACK_LOADER = {
     }
 }
 """
+
+MEDIA_URL = '/frontend/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'frontend')
