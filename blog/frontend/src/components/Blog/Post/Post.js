@@ -37,6 +37,9 @@ const post = (props) => {
                     <div>
                         <div className="Content showText">{props.content}</div>
                     </div>
+                    <div className="Images">
+                        <img src={props.image}/>
+                    </div>
                 </article>
             )
         }

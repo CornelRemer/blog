@@ -91,3 +91,10 @@
     50%   {opacity: 0.01;}
     100% {opacity: 1;}
 }
+
+/* BILDER */
+.Images img{
+    height: 100%;
+    width: 100%;
+    object-fit: 'contain';
+}

@@ -18,7 +18,7 @@ class Blog extends Component {
                 'Authorization': token
             }
         }
-        console.log('Sende Request! ############')
+        console.log('Sende Request zu api/post/')
 
         axios.get('/api/post', config)
             .then(response => {
@@ -31,6 +31,7 @@ class Blog extends Component {
                         postActive: false
                     }
                 });
+                console.log('empfangene Posts: ', updatedPosts);
                 this.setState({posts: updatedPosts});
             })
             .catch(error => {
@@ -71,6 +72,7 @@ class Blog extends Component {
                             title={post.title}
                             summary={post.summary}
                             content={post.content}
+                            image={post.image}
                             first={post.first}
                             activate = {post.postActive}
                             openFullPost={() => this.openFullPost(post)}
