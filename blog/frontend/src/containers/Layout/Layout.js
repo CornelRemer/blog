@@ -133,7 +133,7 @@ class Layout extends Component {
     render () {
         let modal = null
         if (this.state.loginModal) {
-            modal =  <Modal show={this.state.loginModal} modalClosed={this.loginModalCancleHandler}>
+            modal =  <Modal cssStyle="Modal" show={this.state.loginModal} modalClosed={this.loginModalCancleHandler}>
                         <LoginForm loginClick={this.loginFunc}/>
                     </Modal>
         }

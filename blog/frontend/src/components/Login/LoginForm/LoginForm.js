@@ -37,10 +37,14 @@ class LoginForm extends Component{
         let password = '';
         let password2 = '';
         let email = '';
+        const style = {
+            fontFamily: "Courier New",
+            fontSize: 20,
+            fontWeight: "bold"
+        }
         return (
             <Hoc>
-                <h1 style={{textAlign: "center", cursor: "default"}}>Bitte einloggen.</h1>
-
+                <p style={style}>Bitte logge Dich ein.</p>
                 <div className={this.state.showRegister ? "InputLine" : "InputLineHide"}>
                     <label>E-mail: </label>
                     <input type="text" onChange={(event) => (email = event.target.value)} />
@@ -53,7 +57,7 @@ class LoginForm extends Component{
 
                 <div className="InputLine">
                     <label>Password: </label>
-                    <input type="text" onChange={(event) => (password = event.target.value)} />
+                    <input type="password" onChange={(event) => (password = event.target.value)} />
                 </div>
 
                 <div className={this.state.showRegister ? "InputLine" : "InputLineHide"}>
@@ -61,9 +65,9 @@ class LoginForm extends Component{
                     <input type="text" onChange={(event) => (password2 = event.target.value)} />
                 </div>
 
-                <button onClick={() => {this.props.loginClick(username, password)}} className="AnmeldeButton">{this.state.showRegister ? "Anmelden" : "Login"}</button>
+                <button onClick={() => {this.props.loginClick(username, password)}} className="AnmeldeButton" style={style}>{this.state.showRegister ? "Anmelden" : "Login"}</button>
                 {/*<button onClick={() => {this.loginHandler(username,password, password2, email)}} className="AnmeldeButton">{this.state.showRegister ? "Anmelden" : "Login"}</button>*/}
-                <div className="AnmeldeOption" onClick={this.showRegisterHandler}>{this.state.showRegister ? "(Login)" : "(Anmelden)"}</div>
+                {/*<div className="AnmeldeOption" onClick={this.showRegisterHandler}>{this.state.showRegister ? "(Login)" : "(Anmelden)"}</div>*/}
             </Hoc>
         )
     }

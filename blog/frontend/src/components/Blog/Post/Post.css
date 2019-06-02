@@ -1,14 +1,15 @@
 /* Normaler Post */
 .Post {
     width: 250px;
-    padding: 16px;
+    height: 141px;
     text-align: center;
     box-shadow: 0 5px 9px rgba(0, 0, 0, 0.6);
     margin: 10px;
     box-sizing: border-box;
     cursor: pointer;
-    background-color: rgba(0, 0, 0, 0.6);
-    color: rgba(250, 250, 250, 0.6);
+    overflow: hidden;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 20px;
 }
 
 .Post:hover,
@@ -20,8 +21,9 @@
 .open {
     -webkit-animation-name: changeSize;
     animation-name: changeSize;
-    animation-duration: 1s;
-    width: 500px;
+    animation-duration: 2s;
+    width: 100%;
+    height: auto;
     padding: 16px;
     text-align: center;
     box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
@@ -30,25 +32,20 @@
     cursor: auto;
     background-color: rgba(255, 255, 255, 0.6);
 }
+
 @keyframes changeSize {
-    0%   {width: 250px;}
-    100% {width: 500px;}
+    0%   {width: 250px; height: 141px;}
+    100% {width: 100%; height: 250px;}
 }
 
 .close {
     -webkit-animation-name: transform;    
     animation-name: transform;
-    animation-duration: 1s;
+    animation-duration: 2s;
 }
 @keyframes transform {
-    0%   {width: 500px;}
-    100% {width: 250px;}
-}
-
-/* Überschrift des aktivierten Posts */
-.open h1 {
-    font-size: 1.5em;
-    color: black;
+    0%   {width: 100%; height: 250px;}
+    100% {width: 250px; height: 141px;}
 }
 
 /* Button Form */ 
@@ -57,44 +54,34 @@
     width: 30px;
     height: 30px;
     border-radius: 15px;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.22);
     cursor: pointer;
 }
 
 /* Symbol X des Button */
 .CloseButton:after {
     content:'\d7';
-    color: rgba(236, 236, 236, 0.801);
+    color: rgba(151, 151, 151, 0.986);
     font-size: 2.5em;
     font-weight: bold;
     line-height: 30px;
 }
 
-/* Kurzbeschreibung im normalen Post */
-.Summary {
-    margin: 16px 0;
-    color: rgb(133, 133, 133);
-}
-
-.Content {
-    font-size: 1.5em;
-    color: rgb(63, 63, 63);
+.PostTitle {
+    background-color: #ffffffc7;
+    margin: 50px 20px 0px 20px;
+    padding: 5px 0px 5px 0px;
 }
 
 .showText {
     -webkit-animation-name: fade;    
     animation-name: fade;
-    animation-duration: 1.9s;
+    animation-duration: 4s;
+    text-align: justify;
+    padding: 0px 20px 0px 20px;
 }
 @keyframes fade {
     0%   {opacity: 0;}
     50%   {opacity: 0.01;}
     100% {opacity: 1;}
-}
-
-/* BILDER */
-.Images img{
-    height: 100%;
-    width: 100%;
-    object-fit: 'contain';
 }

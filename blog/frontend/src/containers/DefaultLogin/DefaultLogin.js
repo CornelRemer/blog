@@ -1,7 +1,9 @@
 import React from 'react';
 
+import './DefaultLogin.css';
+
 const defaultLogin = () => (
-    <h2> Bitte logge Dich zunächst ein!</h2>
+    <p id="DefaultLogin"> Du musst Dich einloggen um unseren Blog lesen zu können.</p>
 );
 
 export default defaultLogin;

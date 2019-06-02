@@ -15,20 +15,25 @@
 .LoginButton a {
     color: rgb(133, 132, 132);
     text-decoration: none;
-    width: 100%;
+    text-align: center;
+    width: 150px;
+    height: 100%;
     box-sizing: border-box;
     display: block;
     padding: 16px 10px;
     border-bottom: 4px solid transparent;
-    color: white;
+    color: black;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 23px;
+    font-weight: bold;
 }
 
 .LoginButton a:hover,
 .LoginButton a:active,
 .LoginButton a.active {
-    background-color:  rgb(133, 132, 132);
-    border-bottom: 3px solid #40A4C8;
-    color: white;
+    background-color:  #fcfbfb;
+    border-bottom: 3px solid #8dc7ff;
+    color: black;
 }
 
 /* Styling - Desktop */
@@ -42,7 +47,7 @@
     }
 
     .LoginButton a {
-        color: white;
+        color: black;
         height: 100%;
         padding: 16px 10px;
         border-bottom: 4px solid transparent;
@@ -51,8 +56,8 @@
     .LoginButton a:hover,
     .LoginButton a:active,
     .LoginButton a.active {
-        background-color:  rgb(133, 132, 132);
-        border-bottom: 4px solid #40A4C8;
-        color: white;
+        background-color:  #f8f8f8;
+        border-bottom: 4px solid #8dc7ff;
+        color: black;
     }
 }

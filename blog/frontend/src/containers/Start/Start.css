@@ -1,3 +1,40 @@
-.Bild {
-    background-image: url(/static/img/poke.png);
+.Start {
+  text-align: center;
+  font-family: "Courier New", Courier, monospace;
+}
+
+#Headline{
+  font-size: 8vw;
+}
+
+.Start #Paragraph{
+  text-align: justify;  
+  font-size: small;
+  background-color: white;
+  padding: 15px;
+}
+
+.Start img {
+  margin-top: -8%;
+  width: 100%;
+}
+
+/*
+.Titelbild {
+  position: absolute;
+  width: 90%;
+  height: 90%;
+  top: 0;
+  margin-top: 72px;
+  overflow: auto;
   }
+
+.TextStartseite {
+  display: table;
+  margin: 0 auto;
+  margin-top: 50px;
+  width: 90%;
+  text-align: center;
+  background-color: #f6f8f873;
+}
+*/
