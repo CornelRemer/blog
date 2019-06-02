@@ -18,14 +18,16 @@
     display: block;
     padding: 16px 10px;
     border-bottom: 4px solid transparent;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 23px;
 }
 
 .NavigationItem a:hover,
 .NavigationItem a:active,
 .NavigationItem a.active {
-    background-color:  rgb(133, 132, 132);
-    border-bottom: 3px solid #40A4C8;
-    color: white;
+    background-color:  #fcfbfb;
+    border-bottom: 3px solid #8dc7ff;
+    color: black;
 }
 
 /* Styling - Desktop */
@@ -34,12 +36,14 @@
         margin: 0;
         display: flex;
         height: 100%;
-        width: auto;
+        /*width: auto;*/
+        width: 100px;
         align-items: center;
+        text-align: center;
     }
 
     .NavigationItem a {
-        color: white;
+        color: grey;
         height: 100%;
         padding: 16px 10px;
         border-bottom: 4px solid transparent;
@@ -48,8 +52,8 @@
     .NavigationItem a:hover,
     .NavigationItem a:active,
     .NavigationItem a.active {
-        background-color:  rgb(133, 132, 132);
-        border-bottom: 4px solid #40A4C8;
-        color: white;
+        background-color:  #fcfbfb;
+        border-bottom: 4px solid #8dc7ff;
+        color: black;
     }
 }

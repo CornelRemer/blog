@@ -1,3 +1,15 @@
+html {
+    background-color: #fcfbfb;
+}
+
 body {
-    background-color: #000000;
+    display: table;
+    width: 90%;
+    height: 85%;
+    margin: 0 auto;
+    background-color: inherit;
+}
+
+#app {
+    height: 100%;
 }

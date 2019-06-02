@@ -4,10 +4,15 @@ import axios from '../../axios';
 import './Blog.css';
 import Post from '../../components/Blog/Post/Post';
 
+import Modal from '../../components/UI/Modal/Modal';
+import Slider from '../../components/Blog/Slider/Slider';
+
 class Blog extends Component {
     state = {
         posts: [],
-        error: false
+        error: false,
+        sliderModal: false,
+        currentPost: null
     }
 
     componentDidMount() {
@@ -63,6 +68,15 @@ class Blog extends Component {
         this.setState({posts: updatedPosts});
     }
 
+    sliderModalCancleHandler = () => {
+        this.setState({sliderModal: false, currentPost: null});
+    }
+
+    openSlider = (post) => {
+        console.log('öffne Slider Modal');
+        this.setState({sliderModal: true, currentPost: post});
+    }
+
     render () {
         let posts = <p style={{textAlign: 'center'}}>Something went wrong</p>
         if (!this.state.error) {
@@ -72,7 +86,8 @@ class Blog extends Component {
                             title={post.title}
                             summary={post.summary}
                             content={post.content}
-                            image={post.image}
+                            images={post.images}
+                            openSlider= {() => this.openSlider(post)}
                             first={post.first}
                             activate = {post.postActive}
                             openFullPost={() => this.openFullPost(post)}
@@ -80,9 +95,17 @@ class Blog extends Component {
             } );
         }
 
+        let modal = null
+        if (this.state.sliderModal) {
+            modal =  <Modal cssStyle="SliderModal" show={this.state.sliderModal} modalClosed={this.sliderModalCancleHandler}>
+                        <Slider post={this.state.currentPost/*post.images*/} />
+                    </Modal>
+        }
+
         return (
             <div>
                 <section className="Posts">
+                    {modal}
                     {posts}
                 </section>
             </div>

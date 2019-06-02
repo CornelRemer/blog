@@ -1,0 +1,37 @@
+.circle {
+    height: 50px;
+    width: 50px;
+    background-color: #5555555e;
+    border-radius: 50%;
+    position: relative;
+}
+  
+.circle:hover {
+    background-color:  rgb(133, 132, 132);
+    color: white;
+}
+  
+.circle:active {
+    background-color: #3e8e41;
+    transform: translateY(4px);
+}
+
+.circle p {
+    margin: 0;
+    position: absolute;
+    top: 25%;
+    left: 25%;
+}
+  
+i {
+    border: solid black;
+    border-width: 0 5px 5px 0;
+    display: inline-block;
+    padding: 8px;
+    border-color: white;
+}
+  
+.left {
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+}

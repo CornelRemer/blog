@@ -5,9 +5,9 @@ class Map extends Component{
     render () {
         return (
             <div>
-                <p>
-                    Hier erscheint später eine Karte
-                    <NavLink to="/">Blog</NavLink>
+                <p id="DefaultLogin">
+                    Hier erscheint später eine Karte.
+                    <NavLink to="/"> Start</NavLink>
                 </p>
             </div>
         )
