@@ -9,14 +9,14 @@ class PostForm(forms.ModelForm):
         (False, 'not public'),
     )
     title = forms.CharField(max_length=100)
-    summary = forms.CharField(max_length=500, label="Kurzfassung.")
     content = models.TextField()
     creaded_at = models.DateTimeField(auto_now_add=True)
     publish = models.BooleanField(default=False, choices=PUBLIC)
+    post_date = models.DateTimeField(null=True, blank=True)
 
     class Meta:
         model = Post
-        fields = ('title', 'summary','content', 'publish', )
+        fields = ('title', 'content', 'publish', 'post_date',)
 
 class ImageForm(forms.ModelForm):
     image = forms.ImageField(label='Bilder')

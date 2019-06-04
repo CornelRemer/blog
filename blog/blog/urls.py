@@ -5,11 +5,15 @@ from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
 
+from .views import redirect_view
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('frontend.urls')),
     path('', include('post.urls')),
-    path('', include('accounts.urls'))
+    path('', include('accounts.urls')),
+    path('Blog/', redirect_view),
+    path('Map/', redirect_view)
 ]
 
 if settings.DEBUG:

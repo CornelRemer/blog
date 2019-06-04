@@ -12,11 +12,6 @@
     font-size: 20px;
 }
 
-.Post:hover,
-.Post:active {
-    background-color: rgba(138, 188, 230, 0.479);
-}
-
 /* Style des aktivierten Posts */
 .open {
     -webkit-animation-name: changeSize;

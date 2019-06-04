@@ -44,11 +44,11 @@ class Layout extends Component {
         
         axios.get('/api/auth/user', config)
             .then(response => {
-                console.log('Erfolgreich! Response:',response);
+                //console.log('Erfolgreich! Response:',response);
                 const payload = response.data;
             })
             .catch(error => {
-                console.log('Fehler:', error);
+                //console.log('Fehler:', error);
                 localStorage.removeItem("token");
             });
 
@@ -71,14 +71,14 @@ class Layout extends Component {
 
         axios.post('/api/auth/login', body, config)
             .then(response => {
-                console.log('Login erfolgreich:',response);
+                //console.log('Login erfolgreich:',response);
                 const payload = response.data;
-                console.log('Payload:', payload);
+                //console.log('Payload:', payload);
                 localStorage.setItem('token', payload.token);
                 this.setState({isAuthenticated: true, isLoading: false, user: payload.user.username, loginModal:false});
             })
             .catch(error => {
-                console.log('Login-Fehler:', error);
+                //console.log('Login-Fehler:', error);
                 localStorage.removeItem("token");
             });
     }
@@ -86,7 +86,7 @@ class Layout extends Component {
     logoutFunc = () => {
         // Headers
         const token = 'Token ' + localStorage.getItem('token');
-        console.log('MyToken:', token);
+        //console.log('MyToken:', token);
         const config = {
             headers: {
                 'Content-Type': 'application/json',
@@ -96,14 +96,14 @@ class Layout extends Component {
 
         // Request Body
         const username = this.state.user;
-        console.log('Username:', username);
+        //console.log('Username:', username);
         const body = JSON.stringify({username});
 
         axios.post('/api/auth/logout', body, config)
             .then(response => {
-                console.log('Logout war erfolgreich:',response);
+                //console.log('Logout war erfolgreich:',response);
                 const payload = response.data;
-                console.log('Payload:', payload);
+                //console.log('Payload:', payload);
                 localStorage.removeItem("token");
                 this.setState({isAuthenticated: false, isLoading: false});
             })
