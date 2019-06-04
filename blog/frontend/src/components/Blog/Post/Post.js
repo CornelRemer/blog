@@ -4,7 +4,7 @@ import './Post.css';
 
 const post = (props) => {
     if (props.first) {
-        console.log(props.images[0].image);
+        //console.log(props.images[0].image);
         return (
                 <div
                     className="Post"

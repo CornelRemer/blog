@@ -23,11 +23,11 @@ class Blog extends Component {
                 'Authorization': token
             }
         }
-        console.log('Sende Request zu api/post/')
 
+        /* Sende Request zu api/post/ */
         axios.get('/api/post', config)
             .then(response => {
-                //const posts = response.data.slice(0, 4); // // speichert die ersten vier posts
+                //const posts = response.data.slice(0, 4);  // speichert die ersten vier posts
                 const posts = response.data;
                 const updatedPosts = posts.map(post => {
                     return {
@@ -36,13 +36,13 @@ class Blog extends Component {
                         postActive: false
                     }
                 });
-                console.log('empfangene Posts: ', updatedPosts);
+                //console.log('empfangene Posts: ', updatedPosts);
                 this.setState({posts: updatedPosts});
             })
             .catch(error => {
                 this.setState({error: true});
                 console.log('Fehler:',error);
-                console.log('Send config:',config);
+                //console.log('Send config:',config);
             });
     }
 
@@ -69,11 +69,12 @@ class Blog extends Component {
     }
 
     sliderModalCancleHandler = () => {
+        /* schließt Slider Modal */
         this.setState({sliderModal: false, currentPost: null});
     }
 
     openSlider = (post) => {
-        console.log('öffne Slider Modal');
+        /* öffne Slider Modal */
         this.setState({sliderModal: true, currentPost: post});
     }
 

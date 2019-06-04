@@ -15,7 +15,7 @@ const PrivateRoute = ( props) => {
                     exact
                     component={props.defaultComponent}
                 />
-        console.log("Not authenticated!")
+        //console.log("Not authenticated!")
     }
     else {
         route = <Route
@@ -23,7 +23,7 @@ const PrivateRoute = ( props) => {
                     exact
                     component={props.component}
                 />
-        console.log("Authenticated :-)")
+        //console.log("Authenticated")
     }
     return (route);
 }
