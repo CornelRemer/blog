@@ -13,7 +13,9 @@ urlpatterns = [
     path('', include('post.urls')),
     path('', include('accounts.urls')),
     path('Blog/', redirect_view),
-    path('Map/', redirect_view)
+    path('Map/', redirect_view),
+    path('Contact/', redirect_view),
+    path('Impressum/', redirect_view)
 ]
 
 if settings.DEBUG:

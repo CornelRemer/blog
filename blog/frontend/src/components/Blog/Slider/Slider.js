@@ -61,6 +61,7 @@ class Slider extends Component{
                     }
                 </div>
 
+                <div className="CloseSlider" onClick={this.props.closeSlider}/>
                 <div className="Rightarrow">
                     <Rightarrow goToNextSlide={this.goToNextSlide}/>
                 </div>

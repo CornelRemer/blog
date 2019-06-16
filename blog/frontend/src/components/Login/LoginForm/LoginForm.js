@@ -4,13 +4,24 @@ import Hoc from '../../../hoc/hoc';
 import './LoginForm.css';
 
 class LoginForm extends Component{
-    state = {
+    constructor(props) {
+        super(props);
+        this.state = {
+            username: '',
+            password: '',
+            password2: '',
+            email: '',
+            showRegister: false
+        };
+    }
+
+    /*state = {
         username: '',
         password: '',
         password2: '',
         email: '',
         showRegister: false
-    }
+    }*/
 
     loginHandler = (username,password,password2, email) => {
         this.setState({
@@ -50,12 +61,12 @@ class LoginForm extends Component{
                     <input type="text" onChange={(event) => (email = event.target.value)} />
                 </div>
 
-                <div className="InputLine">
+                <div className= {this.props.loginError ? "ErrorInputLine" : "InputLine"}>
                     <label>Username: </label>
                     <input type="text" onChange={(event) => (username = event.target.value)} />
                 </div>
 
-                <div className="InputLine">
+                <div className={this.props.loginError ? "ErrorInputLine" : "InputLine"}>
                     <label>Password: </label>
                     <input type="password" onChange={(event) => (password = event.target.value)} />
                 </div>
@@ -66,6 +77,7 @@ class LoginForm extends Component{
                 </div>
 
                 <button onClick={() => {this.props.loginClick(username, password)}} className="AnmeldeButton" style={style}>{this.state.showRegister ? "Anmelden" : "Login"}</button>
+                <p className="LoginError" >{this.props.loginError ? "Fehler beim Login! Bitte überprüfe den Username und das Passwort." : ""}</p>
                 {/*<button onClick={() => {this.loginHandler(username,password, password2, email)}} className="AnmeldeButton">{this.state.showRegister ? "Anmelden" : "Login"}</button>*/}
                 {/*<div className="AnmeldeOption" onClick={this.showRegisterHandler}>{this.state.showRegister ? "(Login)" : "(Anmelden)"}</div>*/}
             </Hoc>
