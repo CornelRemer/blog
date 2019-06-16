@@ -92,14 +92,16 @@ class Blog extends Component {
                             first={post.first}
                             activate = {post.postActive}
                             openFullPost={() => this.openFullPost(post)}
-                            closeFullPost={() => this.closeFullPost(post)}/>
+                            closeFullPost={() => this.closeFullPost(post)} />
             } );
         }
 
         let modal = null
         if (this.state.sliderModal) {
             modal =  <Modal cssStyle="SliderModal" show={this.state.sliderModal} modalClosed={this.sliderModalCancleHandler}>
-                        <Slider post={this.state.currentPost/*post.images*/} />
+                        <Slider post={
+                            this.state.currentPost/*post.images*/}
+                            closeSlider={() => this.sliderModalCancleHandler()}/>
                     </Modal>
         }
 

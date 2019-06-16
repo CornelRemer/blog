@@ -3,12 +3,15 @@ import { Route } from "react-router-dom";
 
 import Hoc from '../../hoc/hoc';
 import Toolbar from '../../components/Navigation/Toolbar/Toolbar';
+import Footer from '../../components/Footer/Footer';
 import SideDrawer from '../../components/Navigation/SideDrawer/SideDrawer';
 import Blog from '../Blog/Blog';
 import Modal from '../../components/UI/Modal/Modal';
 import LoginForm from '../../components/Login/LoginForm/LoginForm';
 import Map from '../Map/Map';
 import Start from '../Start/Start';
+import Contact from '../Contact/Contact';
+import Impressum from '../Impressum/Impressum';
 import DefaultLogin from '../DefaultLogin/DefaultLogin';
 import PrivateRoute from '../../components/common/PrivateRoute';
 
@@ -18,7 +21,8 @@ import axios from '../../axios';
 class Layout extends Component {
     state = {
         showSideDrawer: false,
-        loginModal:false,
+        loginModal: false,
+        loginError: false,
         token: localStorage.getItem('token'),
         //token: null,
         isAuthenticated: null,
@@ -80,6 +84,7 @@ class Layout extends Component {
             .catch(error => {
                 //console.log('Login-Fehler:', error);
                 localStorage.removeItem("token");
+                this.setState({loginError: true});
             });
     }
 
@@ -105,7 +110,7 @@ class Layout extends Component {
                 const payload = response.data;
                 //console.log('Payload:', payload);
                 localStorage.removeItem("token");
-                this.setState({isAuthenticated: false, isLoading: false});
+                this.setState({isAuthenticated: false, isLoading: false, loginError: false});
             })
             .catch(error => {
                 console.log('Login-Fehler:', error);
@@ -133,8 +138,8 @@ class Layout extends Component {
     render () {
         let modal = null
         if (this.state.loginModal) {
-            modal =  <Modal cssStyle="Modal" show={this.state.loginModal} modalClosed={this.loginModalCancleHandler}>
-                        <LoginForm loginClick={this.loginFunc}/>
+            modal =  <Modal cssStyle="Modal" show={this.state.loginModal} modalClosed={this.loginModalCancleHandler} >
+                        <LoginForm loginClick={this.loginFunc} loginError={this.state.loginError} />
                     </Modal>
         }
         return (
@@ -148,7 +153,10 @@ class Layout extends Component {
                     <Route path="/" exact component={Start} />
                     <PrivateRoute loading={this.state.isLoading} auth={this.state.isAuthenticated} path="/Blog" component={Blog} defaultComponent={DefaultLogin} />
                     <Route path="/Map" exact component={Map} />
+                    <Route path="/Contact" exact component={Contact} />
+                    <Route path="/Impressum" exact component={Impressum} />
                 </div>
+                <Footer />
             </Hoc>
         )
     }
