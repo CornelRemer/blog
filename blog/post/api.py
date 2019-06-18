@@ -4,6 +4,7 @@ from .serializers import PostSerializer
 
 #from django.contrib.auth.models import User
 from django.http import HttpResponseForbidden
+from rest_framework import filters
 #from rest_framework.response import Response
 
 # Post Viewset
@@ -16,11 +17,20 @@ class PostViewSet(viewsets.ModelViewSet):
     ]
     serializer_class = PostSerializer
 
-    def get_queryset(self):
-        return Post.objects.filter(publish=True)
+    #def get_queryset(self):
+        #return Post.objects.filter(publish=True)
         #return Post.objects.all()
         #return Post.objects.filter(owner=self.kwargs['pk'])
         #return self.request.user.posts.all()
+
+    # http://127.0.0.1:8000/api/post?month=6
+    def get_queryset(self):
+        #queryset = Post.objects.filter(publish=True).order_by('-post_date') # reverse order with '-post_date'
+        queryset = Post.objects.filter(publish=True).order_by('post_date')
+        requested_month = self.request.query_params.get('month', None)
+        if requested_month is not None:
+            queryset = queryset.filter(post_date__month=requested_month)
+        return queryset
     
     #def perform_create(self, serializer):
     #    serializer.save(owner=self.request.user)

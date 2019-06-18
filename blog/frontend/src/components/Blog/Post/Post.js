@@ -3,13 +3,19 @@ import React from 'react';
 import './Post.css';
 
 const post = (props) => {
+    let start_image = null;
+    if (props.images.length > 0) {
+        start_image = props.images[0].image;
+    }
+    else {
+    }
     if (props.first) {
-        //console.log(props.images[0].image);
         return (
                 <div
                     className="Post"
                     style={{
-                        backgroundImage: `url(${props.images[0].image})`,
+                        //backgroundImage: `url(${props.images[0].image})`,
+                        backgroundImage:  `url(${start_image})`,
                         backgroundSize: 'contain',
                         backgroundPosition: '50% 60%',
                         backgroundRepeat: 'no-repeat'
@@ -25,7 +31,8 @@ const post = (props) => {
                 <div
                     className="Post close"
                     style={{
-                        backgroundImage: `url(${props.images[0].image})`,
+                        //backgroundImage: `url(${props.images[0].image})`,
+                        backgroundImage:  `url(${start_image})`,
                         backgroundSize: 'contain',
                         backgroundPosition: '50% 60%',
                         backgroundRepeat: 'no-repeat'
