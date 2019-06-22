@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from '../../axios';
 
 import './Blog.css';
+import Postformular from '../../components/Blog/Postformular/Postformular';
 import Post from '../../components/Blog/Post/Post';
 
 import Modal from '../../components/UI/Modal/Modal';
@@ -12,7 +13,10 @@ class Blog extends Component {
         posts: [],
         error: false,
         sliderModal: false,
-        currentPost: null
+        currentPost: null,
+        selectedYear: new Date().getFullYear(),
+        selectedMonth: new Date().getMonth() +1,
+        months : ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember']
     }
 
     componentDidMount() {
@@ -25,7 +29,7 @@ class Blog extends Component {
         }
 
         /* Sende Request zu api/post/ */
-        axios.get('/api/post', config)
+        axios.get("/api/post?month=" + this.state.selectedMonth + "&year=" + this.state.selectedYear, config)
             .then(response => {
                 //const posts = response.data.slice(0, 4);  // speichert die ersten vier posts
                 const posts = response.data;
@@ -78,22 +82,63 @@ class Blog extends Component {
         this.setState({sliderModal: true, currentPost: post});
     }
 
+    changeRadioButtonHandler = ( year ) => {
+        this.setState({selectedYear: year})
+    }
+
+    sendQueryRequest = () => {
+        const token = 'Token ' + localStorage.getItem('token');
+        const config = {
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': token
+            }
+        }
+
+        /* Sende Request zu api/post/ */
+        axios.get("/api/post?month=" + this.state.selectedMonth + "&year=" + this.state.selectedYear, config)
+            .then(response => {
+                const posts = response.data;
+                const updatedPosts = posts.map(post => {
+                    return {
+                        ...post,
+                        first: true,
+                        postActive: false
+                    }
+                });
+                this.setState({posts: updatedPosts});
+            })
+            .catch(error => {
+                this.setState({error: true});
+                console.log('Fehler:',error);
+            });
+    }
+
+    getSelectedMonth = (selectedMonth) => {
+        this.setState({selectedMonth: selectedMonth});
+    }
+
     render () {
         let posts = <p style={{textAlign: 'center'}}>Something went wrong</p>
         if (!this.state.error) {
-            posts = this.state.posts.map( post => {
-                return <Post 
-                            key={post.id}
-                            title={post.title}
-                            summary={post.summary}
-                            content={post.content}
-                            images={post.images}
-                            openSlider= {() => this.openSlider(post)}
-                            first={post.first}
-                            activate = {post.postActive}
-                            openFullPost={() => this.openFullPost(post)}
-                            closeFullPost={() => this.closeFullPost(post)} />
-            } );
+            if (this.state.posts.length === 0) {
+                posts = <p>Hoppla...für {this.state.months[this.state.selectedMonth -1]} {this.state.selectedYear} existieren keine Einträge.</p>
+            }
+            else {
+                posts = this.state.posts.map( post => {
+                    return <Post 
+                                key={post.id}
+                                title={post.title}
+                                summary={post.summary}
+                                content={post.content}
+                                images={post.images}
+                                openSlider= {() => this.openSlider(post)}
+                                first={post.first}
+                                activate = {post.postActive}
+                                openFullPost={() => this.openFullPost(post)}
+                                closeFullPost={() => this.closeFullPost(post)} />
+                } );
+            }
         }
 
         let modal = null
@@ -107,6 +152,13 @@ class Blog extends Component {
 
         return (
             <div>
+                <Postformular
+                    selectedYear={this.state.selectedYear}
+                    months={this.state.months}
+                    changeRadioButtonHandler={this.changeRadioButtonHandler}
+                    getSelectedMonth={this.getSelectedMonth}
+                    sendQueryRequest={() => this.sendQueryRequest()}
+                />
                 <section className="Posts">
                     {modal}
                     {posts}

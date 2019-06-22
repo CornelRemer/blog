@@ -12,7 +12,7 @@
 }
   
 .circle:active {
-    background-color: #3e8e41;
+    background-color: #8dc7ff;
     transform: translateY(4px);
 }
 
