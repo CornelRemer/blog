@@ -47,6 +47,12 @@ class Slider extends Component{
     }
 
     render () {
+        let rightarrow = null;
+        let leftarrow = null;
+        if (this.state.post.images.length > 1) {
+            rightarrow = <Rightarrow goToNextSlide={this.goToNextSlide}/>;
+            leftarrow = <Leftarrow goToPrevSlide={this.goToPrevSlide}/>
+        }
         return (
             <div className="Slider">
                 <div className="slider-wrapper"
@@ -63,10 +69,12 @@ class Slider extends Component{
 
                 <div className="CloseSlider" onClick={this.props.closeSlider}/>
                 <div className="Rightarrow">
-                    <Rightarrow goToNextSlide={this.goToNextSlide}/>
+                    {rightarrow}
+                    {/*<Rightarrow goToNextSlide={this.goToNextSlide}/>*/}
                 </div>
                 <div  className="Leftarrow">
-                    <Leftarrow goToPrevSlide={this.goToPrevSlide}/>
+                    {leftarrow}
+                    {/*<Leftarrow goToPrevSlide={this.goToPrevSlide}/>*/}
                 </div>
             </div>
         )

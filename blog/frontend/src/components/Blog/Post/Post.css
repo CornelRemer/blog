@@ -80,3 +80,26 @@
     50%   {opacity: 0.01;}
     100% {opacity: 1;}
 }
+
+.OpenSliderButton {
+    background-color: #8dc7ff;
+    border: none;
+    color: white;
+    padding: 12px 25px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.OpenSliderButton:hover {
+    background-color: #a9d6ff;
+    color: black;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.OpenSliderButton:active {
+    background-color: #8dc7ff;
+    box-shadow: inherit;
+    transform: translateY(4px);
+    }

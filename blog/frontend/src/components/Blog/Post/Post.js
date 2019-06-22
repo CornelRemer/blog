@@ -4,8 +4,10 @@ import './Post.css';
 
 const post = (props) => {
     let start_image = null;
+    let imagebutton = null;
     if (props.images.length > 0) {
         start_image = props.images[0].image;
+        imagebutton = <button className="OpenSliderButton" onClick={props.openSlider}>Bilder</button>
     }
     else {
     }
@@ -48,7 +50,7 @@ const post = (props) => {
                     <div className="CloseButton" onClick={props.closeFullPost}/>
                     <p style={{fontWeight: 'bold'}}>{props.title}</p>
                     <p className="showText">{props.content}</p>
-                    <button onClick={props.openSlider}>Open Slider!!</button>
+                    {imagebutton}
                 </div>
             )
         }

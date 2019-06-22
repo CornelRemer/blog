@@ -62,22 +62,22 @@ class LoginForm extends Component{
                 </div>
 
                 <div className= {this.props.loginError ? "ErrorInputLine" : "InputLine"}>
-                    <label>Username: </label>
+                    <label>Benutzername: </label>
                     <input type="text" onChange={(event) => (username = event.target.value)} />
                 </div>
 
                 <div className={this.props.loginError ? "ErrorInputLine" : "InputLine"}>
-                    <label>Password: </label>
+                    <label>Passwort: </label>
                     <input type="password" onChange={(event) => (password = event.target.value)} />
                 </div>
 
                 <div className={this.state.showRegister ? "InputLine" : "InputLineHide"}>
-                    <label>Password 2: </label>
+                    <label>Passwort 2: </label>
                     <input type="text" onChange={(event) => (password2 = event.target.value)} />
                 </div>
 
                 <button onClick={() => {this.props.loginClick(username, password)}} className="AnmeldeButton" style={style}>{this.state.showRegister ? "Anmelden" : "Login"}</button>
-                <p className="LoginError" >{this.props.loginError ? "Fehler beim Login! Bitte überprüfe den Username und das Passwort." : ""}</p>
+                <p className="LoginError" >{this.props.loginError ? "Fehler beim Login! Bitte überprüfe den Benutzernamen und das Passwort." : ""}</p>
                 {/*<button onClick={() => {this.loginHandler(username,password, password2, email)}} className="AnmeldeButton">{this.state.showRegister ? "Anmelden" : "Login"}</button>*/}
                 {/*<div className="AnmeldeOption" onClick={this.showRegisterHandler}>{this.state.showRegister ? "(Login)" : "(Anmelden)"}</div>*/}
             </Hoc>

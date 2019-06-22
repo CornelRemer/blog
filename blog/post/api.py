@@ -23,13 +23,14 @@ class PostViewSet(viewsets.ModelViewSet):
         #return Post.objects.filter(owner=self.kwargs['pk'])
         #return self.request.user.posts.all()
 
-    # http://127.0.0.1:8000/api/post?month=6
+    # http://127.0.0.1:8000/api/post?month=6&year=2019
     def get_queryset(self):
         #queryset = Post.objects.filter(publish=True).order_by('-post_date') # reverse order with '-post_date'
-        queryset = Post.objects.filter(publish=True).order_by('post_date')
+        queryset = Post.objects.filter(publish=True).order_by('-post_date')
         requested_month = self.request.query_params.get('month', None)
-        if requested_month is not None:
-            queryset = queryset.filter(post_date__month=requested_month)
+        requested_year = self.request.query_params.get('year', None)
+        if requested_month is not None and requested_year is not None:
+            queryset = queryset.filter(post_date__month=requested_month, post_date__year=requested_year)
         return queryset
     
     #def perform_create(self, serializer):
