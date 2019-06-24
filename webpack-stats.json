@@ -1,1 +1,1 @@
-{"status":"done","chunks":{"main":[{"name":"main.js","path":"C:\\Users\\corne\\Desktop\\blog\\blog\\frontend\\static\\frontend\\bundles\\main.js"}]},"error":"ModuleNotFoundError","message":"Module not found: Error: Can't resolve './SelectedMonth.css' in 'C:\\Users\\corne\\Desktop\\blog\\blog\\frontend\\src\\components\\Blog\\Postformular\\SelectMonth'"}
+{"status":"done","chunks":{"main":[{"name":"main.js","path":"C:\\Users\\corne\\Desktop\\blog\\blog\\frontend\\static\\frontend\\bundles\\main.js"}]}}
