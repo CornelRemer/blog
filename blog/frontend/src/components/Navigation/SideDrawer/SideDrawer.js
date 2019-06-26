@@ -16,7 +16,7 @@ const sidedrawer = ( props ) => {
             <Backdrop show={props.open} clicked={props.closed}/>
             <div className={attachedClasses.join(' ')}>
                 <nav>
-                    <NavigationItems />
+                    <NavigationItems closeSideDrawer={props.closed}/>
                 </nav>
             </div>
         </Hoc>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Hoc from '../../../hoc/hoc';
+//import Hoc from '../../../hoc/hoc';
 import './LoginForm.css';
 
 class LoginForm extends Component{
@@ -14,14 +14,6 @@ class LoginForm extends Component{
             showRegister: false
         };
     }
-
-    /*state = {
-        username: '',
-        password: '',
-        password2: '',
-        email: '',
-        showRegister: false
-    }*/
 
     loginHandler = (username,password,password2, email) => {
         this.setState({
@@ -38,49 +30,33 @@ class LoginForm extends Component{
         }
     }
 
-    showRegisterHandler = () => {
-        const toggleRegister = this.state.showRegister;
-        this.setState({showRegister: !toggleRegister});
-    }
-
     render () {
-        let username = '';
-        let password = '';
-        let password2 = '';
-        let email = '';
-        const style = {
-            fontFamily: "Courier New",
-            fontSize: 20,
-            fontWeight: "bold"
+        let loginErrorMessage = null;
+        if (this.props.loginError) {
+            loginErrorMessage = <p className="LoginError" >Fehler beim Login! Bitte überprüfe den Benutzernamen und das Passwort.</p>
         }
         return (
-            <Hoc>
-                <p style={style}>Bitte logge Dich ein.</p>
-                <div className={this.state.showRegister ? "InputLine" : "InputLineHide"}>
-                    <label>E-mail: </label>
-                    <input type="text" onChange={(event) => (email = event.target.value)} />
-                </div>
-
-                <div className= {this.props.loginError ? "ErrorInputLine" : "InputLine"}>
+            <div
+            className="LoginFormContainer">
+                <p>Bitte logge Dich ein.</p>
+                <div className= {this.props.loginError ? "InputLine LoginError" : "InputLine"}>
                     <label>Benutzername: </label>
-                    <input type="text" onChange={(event) => (username = event.target.value)} />
+                    <input type="text" onChange={(event) => (this.setState({username: event.target.value}))} />
                 </div>
 
-                <div className={this.props.loginError ? "ErrorInputLine" : "InputLine"}>
+                <div className={this.props.loginError ? "InputLine LoginError" : "InputLine"}>
                     <label>Passwort: </label>
-                    <input type="password" onChange={(event) => (password = event.target.value)} />
+                    <input type="password" onChange={(event) => (this.setState({password: event.target.value}))} />
                 </div>
 
-                <div className={this.state.showRegister ? "InputLine" : "InputLineHide"}>
-                    <label>Passwort 2: </label>
-                    <input type="text" onChange={(event) => (password2 = event.target.value)} />
-                </div>
-
-                <button onClick={() => {this.props.loginClick(username, password)}} className="AnmeldeButton" style={style}>{this.state.showRegister ? "Anmelden" : "Login"}</button>
-                <p className="LoginError" >{this.props.loginError ? "Fehler beim Login! Bitte überprüfe den Benutzernamen und das Passwort." : ""}</p>
-                {/*<button onClick={() => {this.loginHandler(username,password, password2, email)}} className="AnmeldeButton">{this.state.showRegister ? "Anmelden" : "Login"}</button>*/}
-                {/*<div className="AnmeldeOption" onClick={this.showRegisterHandler}>{this.state.showRegister ? "(Login)" : "(Anmelden)"}</div>*/}
-            </Hoc>
+                <button
+                    type="submit"
+                    onClick={() => {this.props.loginClick(this.state.username, this.state.password)}}
+                    className="AnmeldeButton">
+                        {this.state.showRegister ? "Anmelden" : "Login"}
+                </button>
+                {loginErrorMessage}
+            </div>
         )
     }
 }

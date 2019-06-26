@@ -8,7 +8,7 @@ const impressum = ( props ) => (
         <p>Kontakt:<br />Telefon: +61 491 112412<br />E-Mail: cornel_remer@yahoo.de</p>
         <p> </p>
         <p>Bei redaktionellen Inhalten:</p>
-        <p>Verantwortlich nach § 55 Abs.2 RStV<br />Cornel Remer</p>
+        <p>Verantwortlich nach §55 Abs. 2 RStV<br />Cornel Remer</p>
     </div>
 )
 

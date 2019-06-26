@@ -63,7 +63,6 @@ class Layout extends Component {
     }
 
     loginFunc = (username, password) => {
-        console.log(username,password)
         // Headers
         const config = {
             crossdomain: true,
