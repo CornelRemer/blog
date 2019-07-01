@@ -9,7 +9,7 @@ const toolbar = ( props ) => (
     <header className="Toolbar">
         <DrawerToggle clicked={props.drawerToggleClicked} />
         <nav className="DesktopOnly">
-            <NavigationItems />
+            <NavigationItems closeSideDrawer={() => (null)}/>
         </nav>
         <nav>
             <LoginButton clicked={props.loginModal} loginStatus={props.loginStatus}/>
