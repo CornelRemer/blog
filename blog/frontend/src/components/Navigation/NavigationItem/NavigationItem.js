@@ -5,7 +5,9 @@ import { NavLink } from "react-router-dom";
 
 const navigationItem = ( props ) => (
     <li className="NavigationItem">
-        <NavLink to={props.link} exact onClick={() => {props.clicked(props.children)}}>
+        <NavLink
+            to={props.link} exact
+            onClick={() => {props.clicked(props.children); props.closeSideDrawer()}}>
             { props.children }
         </NavLink>
     </li>

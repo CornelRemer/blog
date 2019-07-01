@@ -6,8 +6,7 @@ class Map extends Component{
         return (
             <div>
                 <p id="DefaultLogin">
-                    Hier erscheint später eine Karte.
-                    <NavLink to="/"> Start</NavLink>
+                    Hier erscheint später eine Karte. Zurück zum <NavLink to="/">Start</NavLink>
                 </p>
             </div>
         )
