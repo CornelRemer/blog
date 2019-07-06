@@ -157,12 +157,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR,'static/')
 
 """ WEBPACK """
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'frontend' ,'src'),
-    os.path.join(BASE_DIR, 'img')
-)
+#STATICFILES_DIRS = (
+#    os.path.join(BASE_DIR, 'frontend' ,'src'),
+#    os.path.join(BASE_DIR, 'img')
+#)
 
 WEBPACK_LOADER = {
     'DEFAULT': {
