@@ -4,7 +4,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(255, 255, 255, 0.93);
     display: flex; /* flex ordnet Blockelemente nebeneinander an, benötigt justify-content */
     justify-content: space-between;
     align-items: center;

@@ -7,10 +7,12 @@ import Post from '../../components/Blog/Post/Post';
 
 import Modal from '../../components/UI/Modal/Modal';
 import Slider from '../../components/Blog/Slider/Slider';
+import Spinner from '../../components/Spinner/Spinner';
 
 class Blog extends Component {
     state = {
         posts: [],
+        loading: false,
         error: false,
         sliderModal: false,
         currentPost: null,
@@ -20,6 +22,7 @@ class Blog extends Component {
     }
 
     componentDidMount() {
+        this.setState({loading: true});
         const token = 'Token ' + localStorage.getItem('token');
         const config = {
             headers: {
@@ -41,10 +44,10 @@ class Blog extends Component {
                     }
                 });
                 //console.log('empfangene Posts: ', updatedPosts);
-                this.setState({posts: updatedPosts});
+                this.setState({posts: updatedPosts, loading: false});
             })
             .catch(error => {
-                this.setState({error: true});
+                this.setState({error: true, loading: false});
                 console.log('Fehler:',error);
                 //console.log('Send config:',config);
             });
@@ -87,6 +90,7 @@ class Blog extends Component {
     }
 
     sendQueryRequest = () => {
+        this.setState({loading: true});
         const token = 'Token ' + localStorage.getItem('token');
         const config = {
             headers: {
@@ -106,10 +110,10 @@ class Blog extends Component {
                         postActive: false
                     }
                 });
-                this.setState({posts: updatedPosts});
+                this.setState({posts: updatedPosts, loading: false});
             })
             .catch(error => {
-                this.setState({error: true});
+                this.setState({error: true, loading: false});
                 console.log('Fehler:',error);
             });
     }
@@ -119,26 +123,32 @@ class Blog extends Component {
     }
 
     render () {
-        let posts = <p style={{textAlign: 'center'}}>Something went wrong</p>
-        if (!this.state.error) {
-            if (this.state.posts.length === 0) {
-                posts = <p>Hoppla...für {this.state.months[this.state.selectedMonth -1]} {this.state.selectedYear} existieren keine Einträge.</p>
+        let posts = posts = this.state.posts.map( post => {
+            return <Post 
+                        key={post.id}
+                        title={post.title}
+                        summary={post.summary}
+                        content={post.content}
+                        images={post.images}
+                        openSlider= {() => this.openSlider(post)}
+                        first={post.first}
+                        activate = {post.postActive}
+                        openFullPost={() => this.openFullPost(post)}
+                        closeFullPost={() => this.closeFullPost(post)} />
+        } );
+        //let posts = <p style={{textAlign: 'center'}}>Something went wrong</p>;
+        if (!this.state.loading) {
+            if (!this.state.error) {
+                if (this.state.posts.length === 0) {
+                    posts = <p>Hoppla...für {this.state.months[this.state.selectedMonth -1]} {this.state.selectedYear} existieren keine Einträge.</p>;
+                }
             }
             else {
-                posts = this.state.posts.map( post => {
-                    return <Post 
-                                key={post.id}
-                                title={post.title}
-                                summary={post.summary}
-                                content={post.content}
-                                images={post.images}
-                                openSlider= {() => this.openSlider(post)}
-                                first={post.first}
-                                activate = {post.postActive}
-                                openFullPost={() => this.openFullPost(post)}
-                                closeFullPost={() => this.closeFullPost(post)} />
-                } );
+                posts = <p style={{textAlign: 'center'}}>Something went wrong</p>;
             }
+        }
+        else {
+            posts = <Spinner />;
         }
 
         let modal = null

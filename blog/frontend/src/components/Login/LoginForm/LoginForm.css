@@ -2,7 +2,7 @@
     background-color: #fcfbfb;
     padding: 5px 0px 5px 0px;
     font-family: "Courier New", Courier, monospace;
-    overflow: scroll;
+    /*overflow: scroll;*/
 }
 
 .AnmeldeButton {
