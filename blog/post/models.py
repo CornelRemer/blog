@@ -22,7 +22,7 @@ class Post(models.Model):
     publish = models.BooleanField(default=False, choices=PUBLIC)
 
 def get_image_filename(instance, filename):
-    return 'static/img/posts/{0}/{1}'.format(instance.post.title, filename)
+    return 'img/posts/{0}/{1}'.format(instance.post.title, filename)
     
 class Images(models.Model):
     post = models.ForeignKey(Post, related_name='images', default=None, on_delete=models.CASCADE)
