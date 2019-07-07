@@ -133,3 +133,4 @@ blog/frontend/static/frontend/bundles/main.js
 .vscode/settings.json
 webpack-stats.json
 blog/frontend/static/img/
+blog/media/img/posts/
