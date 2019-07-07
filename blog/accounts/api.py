@@ -6,6 +6,7 @@ from guardian.shortcuts import assign_perm
 from guardian.models import UserObjectPermission
 
 # Register API
+"""
 class RegisterAPI(generics.GenericAPIView):
     serializer_class = RegisterSerializer
 
@@ -24,6 +25,7 @@ class RegisterAPI(generics.GenericAPIView):
             "user": UserSerializer(user, context=self.get_serializer_context()).data,
             "token": AuthToken.objects.create(user)
         })
+"""
 
 # Login API
 class LoginAPI(generics.GenericAPIView):
