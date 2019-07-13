@@ -39,6 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.gis',
+    'leaflet',
+    'djgeojson',
     'guardian',
     'post',
     'rest_framework',
@@ -187,3 +190,10 @@ WEBPACK_LOADER = {
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
+LEAFLET_CONFIG = {
+    'DEFAULT_CENTER':(-25.274022, 133.775392),
+    'DEFAULT_ZOOM': 5,
+    'MIN_ZOOM': 2,
+    'MAX_ZOOM': 18,
+}
