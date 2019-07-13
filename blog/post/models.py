@@ -1,3 +1,4 @@
+from __future__ import unicode_literals
 #from django.db import models
 from django.contrib.gis.db import models
 from django.contrib.auth.models import User
@@ -17,9 +18,14 @@ class Post(models.Model):
     title = models.CharField(max_length=100)
     content = models.TextField()
     #image = models.ImageField(upload_to='static/img/', blank=True, null=True)
+    location = models.PointField(blank=True, null=True)
+    #objects = models.GeoManager()
     post_date = models.DateTimeField(null=True, blank=True)
     creaded_at = models.DateTimeField(auto_now_add=True)
     publish = models.BooleanField(default=False, choices=PUBLIC)
+
+    def __unicode__(self):
+        return self.title
 
 def get_image_filename(instance, filename):
     return 'img/posts/{0}/{1}'.format(instance.post.title, filename)
