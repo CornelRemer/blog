@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'guardian',
     'post',
     'rest_framework',
+    'rest_framework_gis',
     'frontend',
     'webpack_loader',
     'knox',
