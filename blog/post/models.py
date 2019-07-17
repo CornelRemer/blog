@@ -24,6 +24,12 @@ class Post(models.Model):
     creaded_at = models.DateTimeField(auto_now_add=True)
     publish = models.BooleanField(default=False, choices=PUBLIC)
 
+    def latitude(self):
+        return self.location.y
+
+    def longitude(self):
+        return self.location.x
+
     def __unicode__(self):
         return self.title
 
