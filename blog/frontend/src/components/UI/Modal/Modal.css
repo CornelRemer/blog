@@ -23,7 +23,7 @@
 
 .SliderModal {
     position: fixed;
-    z-index: 500;
+    z-index: 1200;
     background-color: rgba(255, 255, 255, 0.671);
     width: 90%;
     height: 90%;
