@@ -8,6 +8,7 @@
   height: 4em;
 }
 .spinner {
+  z-index: 1300;
   color: #8dc7ff;;
   text-indent: -9999em;
   margin: 88px auto;
