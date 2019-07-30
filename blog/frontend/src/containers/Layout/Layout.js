@@ -13,6 +13,7 @@ import Start from '../Start/Start';
 import Contact from '../Contact/Contact';
 import Impressum from '../Impressum/Impressum';
 import DefaultLogin from '../DefaultLogin/DefaultLogin';
+import DefaultMap from '../DefaultMap/DefaultMap';
 import PrivateRoute from '../../components/common/PrivateRoute';
 
 import './Layout.css';
@@ -153,7 +154,7 @@ class Layout extends Component {
                 <div className="Layout">
                     <Route path="/" exact component={Start} />
                     <PrivateRoute loading={this.state.isLoading} auth={this.state.isAuthenticated} path="/Blog" component={Blog} defaultComponent={DefaultLogin} />
-                    <Route path="/Map" exact component={Map} />
+                    <PrivateRoute loading={this.state.isLoading} auth={this.state.isAuthenticated} path="/Map" component={Map} defaultComponent={DefaultMap} />
                     <Route path="/Contact" exact component={Contact} />
                     <Route path="/Impressum" exact component={Impressum} />
                 </div>
