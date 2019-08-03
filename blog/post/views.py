@@ -9,7 +9,7 @@ from .forms import ImageForm, PostForm
 @login_required
 def post(request):
 
-    ImageFormSet = modelformset_factory(Images, form=ImageForm, extra=3)
+    ImageFormSet = modelformset_factory(Images, form=ImageForm, extra=20)
 
     if request.method == 'POST':
         postForm = PostForm(request.POST)
