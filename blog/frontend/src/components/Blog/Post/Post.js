@@ -48,7 +48,7 @@ const post = (props) => {
             return (
                 <div className="Post open">
                     <div className="CloseButton" onClick={props.closeFullPost}/>
-                    <p style={{fontWeight: 'bold'}}>{props.title}</p>
+                    <p style={{fontWeight: 'bold', fontSize: '20px'}}>{props.title}</p>
                     <p className="showText">{props.content}</p>
                     {imagebutton}
                 </div>
