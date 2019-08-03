@@ -1,3 +1,11 @@
+.Handwriting {
+  font: 400 130px/0.8 'Great Vibes', Helvetica, sans-serif;
+  color: black;
+  /*text-shadow: 4px 4px 3px rgba(0,0,0,0.1); */
+  font-size: 40px;
+  text-align: center;
+}
+
 .Start {
   text-align: center;
   font-family: "Courier New", Courier, monospace;
@@ -9,7 +17,7 @@
 
 .Start #Paragraph{
   text-align: justify;  
-  font-size: small;
+  font-size: 15px;
   background-color: white;
   padding: 15px;
 }
