@@ -18,10 +18,15 @@ class Start extends Component{
         return (
             <Hoc>
                 <div className="Start">
-                    <p id="Headline">Australien 2019</p>
+                    <p id="Headline">Australien <br/> 2019 - 2020</p>
                     <img src="/static/img/start/titelbild.JPG"/>
                     <p id="Paragraph">
-                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,
+                    Herzlich willkommen auf unserem Blog! Schön, dass Du Dich hierher verirrt hast!<br/><br/>
+                    Nach einiger Planung, Auflösung unserer Berliner Wohnung und Packen, begann am 7. April 2019 unser einjähriges Abenteuer in Australien. Wir sind, nach einem kurzen Zwischenstopp im heißen Singapur, in Sydney gelandet. Hier wollen wir sechs Monate arbeiten, um uns etwas Geld für die Reise anzusparen, und natürlich leben und Sydney entdecken. Im Oktober geht es dann endlich auf große Reise rund um Australien.<br/><br/>
+                    Wir freuen uns, wenn ihr ab und zu hier vorbeischaut und unsere Erlebnisse an den vielen Stränden, in den Nationalparks, im Outback und in den Städten Down Unders verfolgt.<br/><br/>
+                    Als kleine Info zu unserem Blog: Cornel hat mit viel Mühe, abendlicher Zeit nach der Arbeit, Frustration, aber auch viel Spaß diesen Blog komplett selbst programmiert. Verzeiht daher kleine Performancefehlerchen, aber kommt auch gerne auf uns zu, solltet ihr Anzeigefehler oder andere Probleme entdecken.<br/><br/>
+                    Logg Dich einfach mit dem von uns zugeschickten Passwort ein und los geht’s!
+                    <p className='Handwriting'>Cornel & Marina</p>
                     </p>
                 </div>
                 {/*<div className="Titelbild" style={styles}>
