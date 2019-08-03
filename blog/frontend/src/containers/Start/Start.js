@@ -23,8 +23,8 @@ class Start extends Component{
                     <p id="Paragraph">
                     Herzlich willkommen auf unserem Blog! Schön, dass Du Dich hierher verirrt hast!<br/><br/>
                     Nach einiger Planung, Auflösung unserer Berliner Wohnung und Packen, begann am 7. April 2019 unser einjähriges Abenteuer in Australien. Wir sind, nach einem kurzen Zwischenstopp im heißen Singapur, in Sydney gelandet. Hier wollen wir sechs Monate arbeiten, um uns etwas Geld für die Reise anzusparen, und natürlich leben und Sydney entdecken. Im Oktober geht es dann endlich auf große Reise rund um Australien.<br/><br/>
-                    Wir freuen uns, wenn ihr ab und zu hier vorbeischaut und unsere Erlebnisse an den vielen Stränden, in den Nationalparks, im Outback und in den Städten Down Unders verfolgt.<br/><br/>
-                    Als kleine Info zu unserem Blog: Cornel hat mit viel Mühe, abendlicher Zeit nach der Arbeit, Frustration, aber auch viel Spaß diesen Blog komplett selbst programmiert. Verzeiht daher kleine Performancefehlerchen, aber kommt auch gerne auf uns zu, solltet ihr Anzeigefehler oder andere Probleme entdecken.<br/><br/>
+                    Wir freuen uns, wenn Du ab und zu hier vorbeischaust und unsere Erlebnisse an den vielen Stränden, in den Nationalparks, im Outback und in den Städten Down Unders verfolgst.<br/><br/>
+                    Als kleine Info zu unserem Blog: Cornel hat mit viel Mühe, abendlicher Zeit nach der Arbeit, Frustration, aber auch viel Spaß diesen Blog komplett selbst programmiert. Verzeih daher kleine Performancefehlerchen, aber komm auch gerne auf uns zu, solltest Du Anzeigefehler oder andere Probleme entdecken.<br/><br/>
                     Logg Dich einfach mit dem von uns zugeschickten Passwort ein und los geht’s!
                     <p className='Handwriting'>Cornel & Marina</p>
                     </p>
