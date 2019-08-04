@@ -1,9 +1,11 @@
 .DefaultMapMessage {
+    width: 100%;
+    text-align: center;
     color: white;
     z-index: 1161;
     position: absolute;
-    left: 30%;
-    top: 30%;
+    left: 0%;
+    top: 43%;
     font-family: "Courier New", Courier, monospace;
     font-size: 23px;
 }

@@ -109,7 +109,7 @@ class Map extends Component{
                                 <button
                                     onClick={() => this.togglePopUpSidedrawer(post)}
                                     className='toggleSidedrawerButton'>
-                                        mehr...
+                                        Zum Blogeintrag
                                 </button>
                             </Popup>
                         </Marker>
@@ -154,19 +154,20 @@ class Map extends Component{
                 <div className='leaflet-container'>
                     <div
                         className={attachedClasses.join(' ')}>
+                            <div className="CloseButton" onClick={this.closePopUpSidedrawer}/>
                             <div className='popup-sidedrawer-contentBox'>
-                                <p>
+                                <p style={{fontWeight: 'bold', fontSize: '20px'}}>
                                     {this.state.showPopupSidedrawer ? this.state.currentPost.title : null}
                                 </p>
                             </div>
-
-                            {popupsidedrawerIMGbutton}
                             
                             <div className='popup-sidedrawer-contentBox'>
                                 <p className='showText'>
                                     {this.state.showPopupSidedrawer ? this.state.currentPost.content : null}
                                 </p>
                             </div>
+
+                            {popupsidedrawerIMGbutton}
                             
                     </div>
                     <Backdrop

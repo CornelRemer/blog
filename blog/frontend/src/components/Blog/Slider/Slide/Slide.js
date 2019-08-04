@@ -10,8 +10,17 @@ const slide = (props) => {
         backgroundPosition: '50% 60%',
         backgroundColor: 'black'
     }
+    let caption = null;
+    if (props.image.caption) {
+        caption = 
+        <div className="Caption">
+            <p>{props.image.caption}</p>
+        </div>;
+    }
     return (
-        <div className="Slide" style={styles} ></div>
+        <div className="Slide" style={styles} >
+            {caption}
+        </div>
     )
 };
 

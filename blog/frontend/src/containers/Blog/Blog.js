@@ -43,7 +43,6 @@ class Blog extends Component {
                         postActive: false
                     }
                 });
-                //console.log('empfangene Posts: ', updatedPosts);
                 this.setState({posts: updatedPosts, loading: false});
             })
             .catch(error => {
@@ -110,6 +109,7 @@ class Blog extends Component {
                         postActive: false
                     }
                 });
+                console.log('empfangene Posts: ', updatedPosts);
                 this.setState({posts: updatedPosts, loading: false});
             })
             .catch(error => {

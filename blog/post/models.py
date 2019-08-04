@@ -39,6 +39,7 @@ def get_image_filename(instance, filename):
 class Images(models.Model):
     post = models.ForeignKey(Post, related_name='images', default=None, on_delete=models.CASCADE)
     image = models.ImageField(upload_to=get_image_filename, verbose_name='Image')
+    caption = models.TextField(blank=True, null=True)
     #image = models.ImageField(upload_to="static/img/", verbose_name='Image')
 
 
