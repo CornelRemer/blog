@@ -17,10 +17,11 @@ class PostForm(forms.ModelForm):
 
     class Meta:
         model = Post
-        fields = ('title', 'content', 'location','publish', 'post_date',)
+        fields = ('title', 'content', 'location', 'publish', 'post_date',)
 
 class ImageForm(forms.ModelForm):
     image = forms.ImageField(label='Bilder')
+    caption = models.TextField(blank=True, null=True)
     class Meta:
         model = Images
-        fields = ('image', )
+        fields = ('image', 'caption', )
