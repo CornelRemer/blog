@@ -40,7 +40,8 @@ class Blog extends Component {
                     return {
                         ...post,
                         first: true,
-                        postActive: false
+                        postActive: false,
+                        images: post.images.sort((a, b) => (a.id > b.id) ? 1 : -1)
                     }
                 });
                 this.setState({posts: updatedPosts, loading: false});
@@ -106,10 +107,10 @@ class Blog extends Component {
                     return {
                         ...post,
                         first: true,
-                        postActive: false
+                        postActive: false,
+                        images: post.images.sort((a, b) => (a.id > b.id) ? 1 : -1)
                     }
                 });
-                console.log('empfangene Posts: ', updatedPosts);
                 this.setState({posts: updatedPosts, loading: false});
             })
             .catch(error => {
