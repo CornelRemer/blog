@@ -61,6 +61,25 @@
     cursor: pointer;
 }
 
+.zoomButton {
+    top: 5px;
+    display: block;
+}
+
+.zoomButtonContrainer {
+    position: absolute;
+    background-color: #ffffffb5;
+    z-index: 1155;
+    right: 0;
+    top: 0;
+    margin: 5px 5px 0px 0px;
+    padding: 10px 9px 10px 9px;
+    border-radius: 3px;
+    text-align: center;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 18px;
+}
+
 .toggleSidedrawerButton:hover {
     background-color: #a9d6ff;
     color: black;
