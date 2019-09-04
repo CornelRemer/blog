@@ -16,7 +16,9 @@ class Map extends Component{
         error: false,
         showPopupSidedrawer: false,
         currentPost: null,
-        sliderModal: false
+        sliderModal: false,
+        center: [-25.274022, 133.775392],
+        zoom: 4
     }
 
     componentDidMount() {
@@ -38,7 +40,8 @@ class Map extends Component{
                     return {
                         ...post,
                         first: true,
-                        postActive: false
+                        postActive: false,
+                        images: post.images.sort((a, b) => (a.id > b.id) ? 1 : -1)
                     }
                 });
                 this.setState({posts: updatedPosts, loading: false});
@@ -71,6 +74,26 @@ class Map extends Component{
     openSlider = () => {
         /* öffne Slider Modal */
         this.setState({sliderModal: true});
+    }
+
+    sydButtonClickHandler = () => {
+        let old_center = this.state.center[0];
+        if (old_center == -33.854529) { 
+            this.setState({center: [-33.854528, 151.224658], zoom: 12});
+        }
+        else {
+            this.setState({center: [-33.854529, 151.224659], zoom: 12});
+        }
+    }
+
+    strayaButtonClickHandler = () => {
+        let old_center = this.state.center[0];
+        if (old_center == -25.274022) { 
+            this.setState({center: [-25.274023, 133.775392], zoom: 4});
+        }
+        else {
+            this.setState({center: [-25.274022, 133.775392], zoom: 4});
+        }
     }
 
     render () {
@@ -152,6 +175,20 @@ class Map extends Component{
             <div>
                 {modal}
                 <div className='leaflet-container'>
+                    <div className="zoomButtonContrainer">
+                        <p style={{margin:0}}>Ansicht</p>
+                        <div
+                            className="zoomButton toggleSidedrawerButton"
+                            onClick={this.sydButtonClickHandler}>
+                            Sydney
+                        </div>
+                        <div
+                            className="zoomButton toggleSidedrawerButton"
+                            onClick={this.strayaButtonClickHandler}>
+                            Australien
+                        </div>
+                    </div>
+                
                     <div
                         className={attachedClasses.join(' ')}>
                             <div className="CloseButton" onClick={this.closePopUpSidedrawer}/>
@@ -176,8 +213,8 @@ class Map extends Component{
                         clicked={this.closePopUpSidedrawer}
                     />
                     <LeafletMap
-                        center={[-25.274022, 133.775392]}
-                        zoom={4}
+                        center={this.state.center}
+                        zoom={this.state.zoom}
                         maxZoom={18}
                         attributionControl={true}
                         zoomControl={true}

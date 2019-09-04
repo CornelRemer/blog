@@ -26,8 +26,9 @@ class Start extends Component{
                     Wir freuen uns, wenn Du ab und zu hier vorbeischaust und unsere Erlebnisse an den vielen Stränden, in den Nationalparks, im Outback und in den Städten Down Unders verfolgst.<br/><br/>
                     Als kleine Info zu unserem Blog: Cornel hat mit viel Mühe, abendlicher Zeit nach der Arbeit, Frustration, aber auch viel Spaß diesen Blog komplett selbst programmiert. Verzeih daher kleine Performancefehlerchen, aber komm auch gerne auf uns zu, solltest Du Anzeigefehler oder andere Probleme entdecken.<br/><br/>
                     Logg Dich einfach mit dem von uns zugeschickten Passwort ein und los geht’s!
-                    <p className='Handwriting'>Cornel & Marina</p>
+                    {/*<p className='Handwriting'>Cornel & Marina</p>*/}
                     </p>
+                    <p className='Handwriting'>Cornel & Marina</p>
                 </div>
                 {/*<div className="Titelbild" style={styles}>
                     <div className="TextStartseite"></div>

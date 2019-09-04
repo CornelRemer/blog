@@ -18,7 +18,8 @@ class Blog extends Component {
         currentPost: null,
         selectedYear: new Date().getFullYear(),
         selectedMonth: new Date().getMonth() +1,
-        months : ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember']
+        months : ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'],
+        errorMessage: 'Hoppla...für diesen Monat gibt es noch keine Einträge.'
     }
 
     componentDidMount() {
@@ -111,7 +112,9 @@ class Blog extends Component {
                         images: post.images.sort((a, b) => (a.id > b.id) ? 1 : -1)
                     }
                 });
-                this.setState({posts: updatedPosts, loading: false});
+                let new_error_message = 'Hoppla...für ' + this.state.months[this.state.selectedMonth -1] + ' ' + this.state.selectedYear + ' existieren keine Einträge.';
+
+                this.setState({posts: updatedPosts, loading: false, errorMessage: new_error_message});
             })
             .catch(error => {
                 this.setState({error: true, loading: false});
@@ -141,7 +144,7 @@ class Blog extends Component {
         if (!this.state.loading) {
             if (!this.state.error) {
                 if (this.state.posts.length === 0) {
-                    posts = <p>Hoppla...für {this.state.months[this.state.selectedMonth -1]} {this.state.selectedYear} existieren keine Einträge.</p>;
+                    posts = <p>{this.state.errorMessage}</p>;
                 }
             }
             else {
