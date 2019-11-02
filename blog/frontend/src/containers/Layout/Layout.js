@@ -154,8 +154,8 @@ class Layout extends Component {
                 <div className="Layout">
                     <Route path="/" exact component={Start} />
                     <PrivateRoute loading={this.state.isLoading} auth={this.state.isAuthenticated} path="/Blog" component={Blog} defaultComponent={DefaultLogin} />
-                    {/*<PrivateRoute loading={this.state.isLoading} auth={this.state.isAuthenticated} path="/Map" component={Map} defaultComponent={DefaultMap} />*/}
-                    <Route path="/Map" exact component={Map} />
+                    <PrivateRoute loading={this.state.isLoading} auth={this.state.isAuthenticated} path="/Map" component={Map} defaultComponent={DefaultMap} />
+                    {/*<Route path="/Map" exact component={Map} />*/}
                     <Route path="/Contact" exact component={Contact} />
                     <Route path="/Impressum" exact component={Impressum} />
                 </div>

@@ -18,7 +18,7 @@ class Blog extends Component {
         currentPost: null,
         selectedYear: new Date().getFullYear(),
         selectedMonth: new Date().getMonth() +1,
-        months : ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'],
+        months : ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember', 'alle Einträge'],
         errorMessage: 'Hoppla...für diesen Monat gibt es noch keine Einträge.'
     }
 
@@ -100,8 +100,13 @@ class Blog extends Component {
             }
         }
 
+        let apiurl = "/api/post?month=" + this.state.selectedMonth + "&year=" + this.state.selectedYear;
+        if (this.state.selectedMonth == 13) {
+            apiurl = "/api/post";
+        }
+
         /* Sende Request zu api/post/ */
-        axios.get("/api/post?month=" + this.state.selectedMonth + "&year=" + this.state.selectedYear, config)
+        axios.get(apiurl, config)
             .then(response => {
                 const posts = response.data;
                 const updatedPosts = posts.map(post => {
