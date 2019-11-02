@@ -18,7 +18,8 @@
     width: 90%;
     margin: 0px 0px 0px 0px;
     padding: 7px 0 7px 0;
-    background-color: #ffffff47;
+    /*background-color: #ffffff47;*/
+    background-color: #fff6;
     font-family: "Courier New", Courier, monospace;
     white-space: pre-line;
     position: absolute;
