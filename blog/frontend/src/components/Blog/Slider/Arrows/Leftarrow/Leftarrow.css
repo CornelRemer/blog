@@ -10,6 +10,12 @@
     background-color:  rgb(133, 132, 132);
     color: white;
 }
+
+@media (max-width: 500px) {
+    .circle:hover {
+        background-color: #5555555e;
+    }
+}
   
 .circle:active {
     background-color: #8dc7ff;
