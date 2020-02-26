@@ -17,7 +17,7 @@ class Map extends Component{
         showPopupSidedrawer: false,
         currentPost: null,
         sliderModal: false,
-        center: [-25.274022, 133.775392],
+        center: [-28.274022, 133.775392],
         zoom: 4
     }
 
@@ -89,10 +89,20 @@ class Map extends Component{
     strayaButtonClickHandler = () => {
         let old_center = this.state.center[0];
         if (old_center == -25.274022) { 
-            this.setState({center: [-25.274023, 133.775392], zoom: 4});
+            this.setState({center: [-28.274023, 133.775392], zoom: 4});
         }
         else {
-            this.setState({center: [-25.274022, 133.775392], zoom: 4});
+            this.setState({center: [-28.274022, 133.775392], zoom: 4});
+        }
+    }
+
+    tasButtonClickHandler = () => {
+        let old_center = this.state.center[0];
+        if (old_center == -42.115123) { 
+            this.setState({center: [-42.115123, 146.709758], zoom: 7});
+        }
+        else {
+            this.setState({center: [-42.115122, 146.709758], zoom: 7});
         }
     }
 
@@ -186,6 +196,11 @@ class Map extends Component{
                             className="zoomButton toggleSidedrawerButton"
                             onClick={this.strayaButtonClickHandler}>
                             Australien
+                        </div>
+                        <div
+                            className="zoomButton toggleSidedrawerButton"
+                            onClick={this.tasButtonClickHandler}>
+                            Tasmanien
                         </div>
                     </div>
                 
