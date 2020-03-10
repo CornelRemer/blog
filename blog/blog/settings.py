@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'djgeojson',
     'guardian',
     'post',
+    'route',
     'rest_framework',
     'rest_framework_gis',
     'frontend',
@@ -117,7 +118,7 @@ DATABASES = {
         'ENGINE': 'django.contrib.gis.db.backends.postgis',
         'NAME': 'blog_db',
         'USER': 'cornel',
-        'PASSWORD': 'Password12345',
+        'PASSWORD': 'postres',
         'HOST': '',
         'PORT': '',
     }

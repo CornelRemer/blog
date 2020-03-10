@@ -12,6 +12,7 @@ urlpatterns = [
     path('', include('frontend.urls')),
     path('', include('post.urls')),
     path('', include('accounts.urls')),
+    path('', include('route.urls')),
     path('Blog/', redirect_view),
     path('Map/', redirect_view),
     path('Contact/', redirect_view),
