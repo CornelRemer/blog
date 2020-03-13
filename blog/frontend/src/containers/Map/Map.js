@@ -2,16 +2,20 @@ import React, { Component } from 'react';
 import { NavLink } from "react-router-dom";
 
 import axios from '../../axios';
-import { Map as LeafletMap, TileLayer, Marker, Popup } from 'react-leaflet';
+import { Map as LeafletMap, TileLayer, Polyline, Marker, Popup } from 'react-leaflet';
 import './Map.css';
+import './Checkbox.css';
 import Spinner from '../../components/Spinner/Spinner';
 import Backdrop from '../../components/UI/Backdrop/Backdrop';
 import Modal from '../../components/UI/Modal/Modal';
 import Slider from '../../components/Blog/Slider/Slider';
+import L from 'leaflet';
 
 class Map extends Component{
     state = {
         posts: [],
+        routs: [],
+        route_checkbox: false,
         loading: false,
         error: false,
         showPopupSidedrawer: false,
@@ -50,10 +54,17 @@ class Map extends Component{
                 this.setState({error: true, loading: false});
                 console.log('Fehler:',error);
             });
-    }
 
-    popupOnClickHandler = () => {
-        console.log('Popup clicked');
+            /* Sende Request zu api/route/ */
+        axios.get("/api/route", config)
+        .then(response => {
+            const routs = response.data;
+            this.setState({routs: routs, loading: false});
+        })
+        .catch(error => {
+            this.setState({error: true, loading: false});
+            console.log('Fehler:',error);
+        });
     }
 
     togglePopUpSidedrawer = (post) => {
@@ -88,7 +99,7 @@ class Map extends Component{
 
     strayaButtonClickHandler = () => {
         let old_center = this.state.center[0];
-        if (old_center == -25.274022) { 
+        if (old_center == -28.274022) {
             this.setState({center: [-28.274023, 133.775392], zoom: 4});
         }
         else {
@@ -98,7 +109,7 @@ class Map extends Component{
 
     tasButtonClickHandler = () => {
         let old_center = this.state.center[0];
-        if (old_center == -42.115123) { 
+        if (old_center == -42.115122) { 
             this.setState({center: [-42.115123, 146.709758], zoom: 7});
         }
         else {
@@ -106,11 +117,39 @@ class Map extends Component{
         }
     }
 
+    changeCheckBoxHandler = () => {
+        let old_checkBox_value = this.state.route_checkbox;
+        this.setState({route_checkbox: !old_checkBox_value});
+    }
+
     render () {
         let attachedClasses = ["popup-sidedrawer", "Close-popupSidedrawer"];
         if (this.state.showPopupSidedrawer) {
             attachedClasses = ["popup-sidedrawer", "Open-popupSidedrawer"];
         }
+        let route = null;
+        if (this.state.route_checkbox) {
+                route = this.state.routs.map(rout => {
+                return (
+                    <Polyline
+                            positions={L.GeoJSON.coordsToLatLngs(rout.route.coordinates,1)}
+                            key={rout.id}
+                            color='#2b82cb'
+                            smoothFactor={1.0}
+                            noClip={true}
+                            weight={2}>
+                            <Popup>
+                                    <p>{rout.title}</p>
+                                    <div>
+                                        {rout.label}
+                                    </div>
+                            </Popup>
+                    </Polyline>
+                )
+            });
+        }
+        
+        
 
         let marker = this.state.posts.map( post => {
             let popup_img = null;
@@ -137,7 +176,6 @@ class Map extends Component{
                                         backgroundPosition: '50% 60%',
                                         backgroundRepeat: 'no-repeat'
                                     }}
-                                    onClick={() => this.popupOnClickHandler()}
                                 ></div>
                                 <button
                                     onClick={() => this.togglePopUpSidedrawer(post)}
@@ -202,6 +240,15 @@ class Map extends Component{
                             onClick={this.tasButtonClickHandler}>
                             Tasmanien
                         </div>
+                        <div>
+                            <label class="container">Route
+                                <input
+                                    type="checkbox"
+                                    defaultChecked={this.state.route_checkbox}
+                                    onChange={this.changeCheckBoxHandler}/>
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
                     </div>
                 
                     <div
@@ -231,6 +278,7 @@ class Map extends Component{
                         center={this.state.center}
                         zoom={this.state.zoom}
                         maxZoom={18}
+                        minZoom={2}
                         attributionControl={true}
                         zoomControl={true}
                         doubleClickZoom={true}
@@ -243,6 +291,7 @@ class Map extends Component{
                             url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
                         />
                         {marker}
+                        {route}
                     </LeafletMap>
                 </div>
             </div>
