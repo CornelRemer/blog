@@ -1,0 +1,85 @@
+version: "3.9"
+
+volumes:
+  persistent_media:
+  persistent_static:
+  persistent_blog:
+
+services:
+  db:
+    image: postgis/postgis
+    env_file:
+      - ../config/.env
+    container_name: postgres_db
+    # build:
+    #   dockerfile: ./docker/db.Dockerfile
+    #   context: ..
+    # environment:
+    #   - POSTGRES_DB=blog_db
+    #   - POSTGRES_USER=admin
+    #   - POSTGRES_PASSWORD=admin
+    ports:
+      - "5432:5432"
+    volumes:
+      - ../persistent/postgres-data:/var/lib/postgresql/data
+      - ../persistent/backups:/var/backups
+    # restart: unless-stoped
+  
+  web:
+    image: blog
+    env_file:
+      - ../config/.env
+    container_name: ${CONTAINER_NAME}
+    build:
+      dockerfile: ./docker/dev.Dockerfile
+      context: ..
+    command: tail -F /dev/null
+    ports:
+      - "${HOST_PORT}:${CONTAINER_PORT}"
+    depends_on:
+      - db
+    volumes:
+      # - ../persistent/media:/home/appuser/app/blog/media
+      # - ../persistent/static:/home/appuser/app/blog/static
+      - type: volume
+        source: persistent_media
+        target: /home/appuser/app/blog/media
+      - type: volume
+        source: persistent_static
+        target: /home/appuser/app/blog/static
+      - type: volume
+        source: persistent_blog
+        target: /home/appuser/app/blog
+      
+  nginx:
+    container_name: nginx
+    build:
+      dockerfile: ./docker/nginx.Dockerfile
+      context: ..
+    ports:
+      - 1234:80
+    depends_on: 
+      - db
+      - web
+    volumes:
+      - type: volume
+        source: persistent_media
+        target: /var/www/blog/media
+        read_only: true
+      - type: volume
+        source: persistent_static
+        target: /var/www/blog/static
+        read_only: true
+      - type: volume
+        source: persistent_blog
+        target: /var/www/blog
+        read_only: true
+
+      # - persistent_media:/var/www/blog/media:ro
+        # read_only: true
+      # - persistent_static:/var/www/blog/static:ro
+        # read_only: true
+    # volumes:
+    #   - ../persistent/media:/var/www/blog
+    #   - ../persistent/static:/var/www/blog
+  

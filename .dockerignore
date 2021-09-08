@@ -1,0 +1,11 @@
+.venv
+.git
+*.md
+.gitignore
+how_to_start.txt
+poetry.lock
+
+blog/frontend/static/frontend/bundles/main.js
+.vscode/settings.json
+webpack-stats.json
+persistent
